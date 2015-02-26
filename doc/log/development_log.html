@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>development.log - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../README_rdoc.html">README</a>
+  
+    <li><a href="../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../app/assets/javascripts/customers_js_coffee.html">customers.js.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/sessions_js_coffee.html">sessions.js.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/welcome_js_coffee.html">welcome.js.coffee</a>
+  
+    <li><a href="../app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../app/assets/stylesheets/custom_css_scss.html">custom.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/customers_css_scss.html">customers.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/sessions_css_scss.html">sessions.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/welcome_css_scss.html">welcome.css.scss</a>
+  
+    <li><a href="../config_ru.html">config.ru</a>
+  
+    <li><a href="../db/preseeds/Brands_csv.html">Brands.csv</a>
+  
+    <li><a href="../db/preseeds/SizeTypes_csv.html">SizeTypes.csv</a>
+  
+    <li><a href="../db/preseeds/Styles_csv.html">Styles.csv</a>
+  
+    <li><a href="../log/development_log.html">development.log</a>
+  
+    <li><a href="../public/404_html.html">404.html</a>
+  
+    <li><a href="../public/422_html.html">422.html</a>
+  
+    <li><a href="../public/500_html.html">500.html</a>
+  
+    <li><a href="../public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../public/robots_txt.html">robots</a>
+  
+    <li><a href="../tmp/pids/server_pid.html">server.pid</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page log/development.log">
+
+<pre>[1m[36m (1882.4ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+[1m[35m (1082.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+[1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m</pre>
+
+<p>Migrating to <a href="../CreateCustomers.html">CreateCustomers</a>
+(20150128062158)</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m</pre>
+
+<p>Migrating to <a href="../CreateCustomers.html">CreateCustomers</a>
+(20150128062158)</p>
+
+<pre>[1m[35m (572.6ms)[0m  CREATE TABLE `customers` (`id` int(11) auto_increment PRIMARY KEY, `CustID` bigint, `Email` varchar(30), `Gender` varchar(1), `password_digest` varchar(60), `ShoeSize` float, `ShoeSizeError` float, `preferredSizeType` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (332.4ms)[0m  [1mCREATE UNIQUE INDEX `index_customers_on_CustID`  ON `customers` (`CustID`) [0m
+[1m[35m (33.0ms)[0m  BEGIN
+[1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128062158&#39;)[0m
+[1m[35m (38.8ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateGenders.html">CreateGenders</a>
+(20150128064156)</p>
+
+<pre>[1m[36m (359.3ms)[0m  [1mCREATE TABLE `genders` (`id` int(11) auto_increment PRIMARY KEY, `Gender` varchar(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (428.0ms)[0m  CREATE UNIQUE INDEX `index_genders_on_Gender`  ON `genders` (`Gender`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (17.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064156&#39;)
+[1m[36m (61.1ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateSizetypes.html">CreateSizetypes</a>
+(20150128064957)</p>
+
+<pre>[1m[35m (292.6ms)[0m  CREATE TABLE `sizetypes` (`id` int(11) auto_increment PRIMARY KEY, `SizeType` varchar(20), `ToMondo1` float, `ToMondo0` float, `SizeTypeInterval` float, `MinSize` float, `MaxSize` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (382.3ms)[0m  [1mCREATE UNIQUE INDEX `index_sizetypes_on_SizeType`  ON `sizetypes` (`SizeType`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (9.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064957&#39;)[0m
+[1m[35m (57.8ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a
+href="../CreateTypetorealsizes.html">CreateTypetorealsizes</a>
+(20150128065447)</p>
+
+<pre>[1m[36m (542.9ms)[0m  [1mCREATE TABLE `typetorealsizes` (`id` int(11) auto_increment PRIMARY KEY, `T2RS_ID` int(11), `BrandStyleMaterial` varchar(70), `ToMondo1` float, `ToMondo0` float, `modified` tinyint(1), `Uncertainty` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (501.5ms)[0m  CREATE UNIQUE INDEX `index_typetorealsizes_on_T2RS_ID`  ON `typetorealsizes` (`T2RS_ID`) 
+[1m[36m (294.8ms)[0m  [1mCREATE UNIQUE INDEX `index_typetorealsizes_on_BrandStyleMaterial`  ON `typetorealsizes` (`BrandStyleMaterial`) [0m
+[1m[35m (1.0ms)[0m  BEGIN
+[1m[36mSQL (19.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065447&#39;)[0m
+[1m[35m (40.9ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateBrands.html">CreateBrands</a>
+(20150128065759)</p>
+
+<pre>[1m[36m (416.8ms)[0m  [1mCREATE TABLE `brands` (`id` int(11) auto_increment PRIMARY KEY, `Brand` varchar(30), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (317.3ms)[0m  CREATE UNIQUE INDEX `index_brands_on_Brand`  ON `brands` (`Brand`) 
+[1m[36m (1.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (1.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065759&#39;)
+[1m[36m (23.5ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateStyles.html">CreateStyles</a>
+(20150128065918)</p>
+
+<pre>[1m[35m (284.5ms)[0m  CREATE TABLE `styles` (`id` int(11) auto_increment PRIMARY KEY, `Style` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (648.7ms)[0m  [1mCREATE UNIQUE INDEX `index_styles_on_Style`  ON `styles` (`Style`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (7.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065918&#39;)[0m
+[1m[35m (33.1ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateMaterials.html">CreateMaterials</a>
+(20150128070117)</p>
+
+<pre>[1m[36m (316.9ms)[0m  [1mCREATE TABLE `materials` (`id` int(11) auto_increment PRIMARY KEY, `Material` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (544.9ms)[0m  CREATE UNIQUE INDEX `index_materials_on_Material`  ON `materials` (`Material`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (2632.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070117&#39;)
+[1m[36m (52.4ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateLengthfits.html">CreateLengthfits</a>
+(20150128070629)</p>
+
+<pre>[1m[35m (1625.0ms)[0m  CREATE TABLE `lengthfits` (`id` int(11) auto_increment PRIMARY KEY, `LengthFit` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (393.7ms)[0m  [1mCREATE UNIQUE INDEX `index_lengthfits_on_LengthFit`  ON `lengthfits` (`LengthFit`) [0m
+[1m[35m (1.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070629&#39;)[0m
+[1m[35m (24.9ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateShoes.html">CreateShoes</a> (20150128071640)</p>
+
+<pre>[1m[36m (381.5ms)[0m  [1mCREATE TABLE `shoes` (`id` int(11) auto_increment PRIMARY KEY, `ShoeID` int(11), `OwnerID` int(11), `T2RS_ID` int(11), `Brand` varchar(30), `Style` varchar(20), `Material` varchar(20), `SizeType` varchar(20), `LengthFit` varchar(20), `Size` float, `preRealSize` float, `RealSize` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (834.9ms)[0m  CREATE UNIQUE INDEX `index_shoes_on_ShoeID`  ON `shoes` (`ShoeID`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128071640&#39;)
+[1m[36m (43.9ms)[0m  [1mCOMMIT[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+[1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+[1m[36m (296.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+[1m[35m (843.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+[1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m</pre>
+
+<p>Migrating to <a href="../CreateCustomers.html">CreateCustomers</a>
+(20150128062158)</p>
+
+<pre>[1m[35m (343.8ms)[0m  CREATE TABLE `customers` (`id` int(11) auto_increment PRIMARY KEY, `CustID` bigint, `Email` varchar(30), `Gender` varchar(1), `password_digest` varchar(60), `ShoeSize` float, `ShoeSizeError` float, `preferredSizeType` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (218.9ms)[0m  [1mCREATE UNIQUE INDEX `index_customers_on_CustID`  ON `customers` (`CustID`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128062158&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateGenders.html">CreateGenders</a>
+(20150128064156)</p>
+
+<pre>[1m[36m (328.1ms)[0m  [1mCREATE TABLE `genders` (`id` int(11) auto_increment PRIMARY KEY, `Gender` varchar(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (479.4ms)[0m  CREATE UNIQUE INDEX `index_genders_on_Gender`  ON `genders` (`Gender`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064156&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateSizetypes.html">CreateSizetypes</a>
+(20150128064957)</p>
+
+<pre>[1m[35m (343.8ms)[0m  CREATE TABLE `sizetypes` (`id` int(11) auto_increment PRIMARY KEY, `SizeType` varchar(20), `ToMondo1` float, `ToMondo0` float, `SizeTypeInterval` float, `MinSize` float, `MaxSize` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (281.3ms)[0m  [1mCREATE UNIQUE INDEX `index_sizetypes_on_SizeType`  ON `sizetypes` (`SizeType`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064957&#39;)[0m
+[1m[35m (78.2ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a
+href="../CreateTypetorealsizes.html">CreateTypetorealsizes</a>
+(20150128065447)</p>
+
+<pre>[1m[36m (297.1ms)[0m  [1mCREATE TABLE `typetorealsizes` (`id` int(11) auto_increment PRIMARY KEY, `T2RS_ID` int(11), `BrandStyleMaterial` varchar(70), `ToMondo1` float, `ToMondo0` float, `modified` tinyint(1), `Uncertainty` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (281.3ms)[0m  CREATE UNIQUE INDEX `index_typetorealsizes_on_T2RS_ID`  ON `typetorealsizes` (`T2RS_ID`) 
+[1m[36m (265.6ms)[0m  [1mCREATE UNIQUE INDEX `index_typetorealsizes_on_BrandStyleMaterial`  ON `typetorealsizes` (`BrandStyleMaterial`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065447&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateBrands.html">CreateBrands</a>
+(20150128065759)</p>
+
+<pre>[1m[36m (265.8ms)[0m  [1mCREATE TABLE `brands` (`id` int(11) auto_increment PRIMARY KEY, `Brand` varchar(30), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (250.0ms)[0m  CREATE UNIQUE INDEX `index_brands_on_Brand`  ON `brands` (`Brand`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065759&#39;)
+[1m[36m (15.6ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateStyles.html">CreateStyles</a>
+(20150128065918)</p>
+
+<pre>[1m[35m (250.0ms)[0m  CREATE TABLE `styles` (`id` int(11) auto_increment PRIMARY KEY, `Style` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (265.6ms)[0m  [1mCREATE UNIQUE INDEX `index_styles_on_Style`  ON `styles` (`Style`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065918&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateMaterials.html">CreateMaterials</a>
+(20150128070117)</p>
+
+<pre>[1m[36m (234.4ms)[0m  [1mCREATE TABLE `materials` (`id` int(11) auto_increment PRIMARY KEY, `Material` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (343.7ms)[0m  CREATE UNIQUE INDEX `index_materials_on_Material`  ON `materials` (`Material`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070117&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateLengthfits.html">CreateLengthfits</a>
+(20150128070629)</p>
+
+<pre>[1m[35m (234.4ms)[0m  CREATE TABLE `lengthfits` (`id` int(11) auto_increment PRIMARY KEY, `LengthFit` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (265.9ms)[0m  [1mCREATE UNIQUE INDEX `index_lengthfits_on_LengthFit`  ON `lengthfits` (`LengthFit`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070629&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateShoes.html">CreateShoes</a> (20150128071640)</p>
+
+<pre>[1m[36m (281.3ms)[0m  [1mCREATE TABLE `shoes` (`ShoeID` int(11), `OwnerID` int(11), `T2RS_ID` int(11), `Brand` varchar(30), `Style` varchar(20), `Material` varchar(20), `SizeType` varchar(20), `LengthFit` varchar(20), `Size` float, `preRealSize` float, `RealSize` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (312.5ms)[0m  CREATE UNIQUE INDEX `index_shoes_on_ShoeID`  ON `shoes` (`ShoeID`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128071640&#39;)
+[1m[36m (42.9ms)[0m  [1mCOMMIT[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+[1m[36m (296.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+[1m[35m (468.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+[1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m</pre>
+
+<p>Migrating to <a href="../CreateCustomers.html">CreateCustomers</a>
+(20150128062158)</p>
+
+<pre>[1m[35m (250.1ms)[0m  CREATE TABLE `customers` (`CustID` bigint, `Email` varchar(30), `Gender` varchar(1), `password_digest` varchar(60), `ShoeSize` float, `ShoeSizeError` float, `preferredSizeType` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (265.6ms)[0m  [1mCREATE UNIQUE INDEX `index_customers_on_CustID`  ON `customers` (`CustID`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128062158&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateGenders.html">CreateGenders</a>
+(20150128064156)</p>
+
+<pre>[1m[36m (250.0ms)[0m  [1mCREATE TABLE `genders` (`Gender` varchar(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (203.2ms)[0m  CREATE UNIQUE INDEX `index_genders_on_Gender`  ON `genders` (`Gender`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064156&#39;)
+[1m[36m (15.7ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateSizetypes.html">CreateSizetypes</a>
+(20150128064957)</p>
+
+<pre>[1m[35m (328.2ms)[0m  CREATE TABLE `sizetypes` (`SizeType` varchar(20), `ToMondo1` float, `ToMondo0` float, `SizeTypeInterval` float, `MinSize` float, `MaxSize` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (265.6ms)[0m  [1mCREATE UNIQUE INDEX `index_sizetypes_on_SizeType`  ON `sizetypes` (`SizeType`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064957&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a
+href="../CreateTypetorealsizes.html">CreateTypetorealsizes</a>
+(20150128065447)</p>
+
+<pre>[1m[36m (250.1ms)[0m  [1mCREATE TABLE `typetorealsizes` (`T2RS_ID` int(11), `BrandStyleMaterial` varchar(70), `ToMondo1` float, `ToMondo0` float, `modified` tinyint(1), `Uncertainty` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (187.5ms)[0m  CREATE UNIQUE INDEX `index_typetorealsizes_on_T2RS_ID`  ON `typetorealsizes` (`T2RS_ID`) 
+[1m[36m (250.0ms)[0m  [1mCREATE UNIQUE INDEX `index_typetorealsizes_on_BrandStyleMaterial`  ON `typetorealsizes` (`BrandStyleMaterial`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065447&#39;)[0m
+[1m[35m (47.3ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateBrands.html">CreateBrands</a>
+(20150128065759)</p>
+
+<pre>[1m[36m (234.4ms)[0m  [1mCREATE TABLE `brands` (`Brand` varchar(30), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (296.9ms)[0m  CREATE UNIQUE INDEX `index_brands_on_Brand`  ON `brands` (`Brand`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065759&#39;)
+[1m[36m (15.7ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateStyles.html">CreateStyles</a>
+(20150128065918)</p>
+
+<pre>[1m[35m (281.3ms)[0m  CREATE TABLE `styles` (`Style` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (281.2ms)[0m  [1mCREATE UNIQUE INDEX `index_styles_on_Style`  ON `styles` (`Style`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065918&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateMaterials.html">CreateMaterials</a>
+(20150128070117)</p>
+
+<pre>[1m[36m (281.3ms)[0m  [1mCREATE TABLE `materials` (`Material` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (281.2ms)[0m  CREATE UNIQUE INDEX `index_materials_on_Material`  ON `materials` (`Material`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070117&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateLengthfits.html">CreateLengthfits</a>
+(20150128070629)</p>
+
+<pre>[1m[35m (515.9ms)[0m  CREATE TABLE `lengthfits` (`LengthFit` varchar(20), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (484.4ms)[0m  [1mCREATE UNIQUE INDEX `index_lengthfits_on_LengthFit`  ON `lengthfits` (`LengthFit`) [0m
+[1m[35m (15.6ms)[0m  BEGIN
+[1m[36mSQL (15.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070629&#39;)[0m
+[1m[35m (31.2ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateShoes.html">CreateShoes</a> (20150128071640)</p>
+
+<pre>[1m[36m (265.8ms)[0m  [1mCREATE TABLE `shoes` (`ShoeID` int(11), `OwnerID` int(11), `T2RS_ID` int(11), `Brand` varchar(30), `Style` varchar(20), `Material` varchar(20), `SizeType` varchar(20), `LengthFit` varchar(20), `Size` float, `preRealSize` float, `RealSize` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (265.7ms)[0m  CREATE UNIQUE INDEX `index_shoes_on_ShoeID`  ON `shoes` (`ShoeID`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128071640&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+[1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+[1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+[1m[36m (260.4ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+[1m[35m (525.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+[1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m</pre>
+
+<p>Migrating to <a href="../CreateCustomers.html">CreateCustomers</a>
+(20150128062158)</p>
+
+<pre>[1m[35m (264.6ms)[0m  CREATE TABLE `customers` (`CustID` bigint NOT NULL, `Email` varchar(30) NOT NULL, `Gender` varchar(1) NOT NULL, `password_digest` varchar(60) NOT NULL, `ShoeSize` float, `ShoeSizeError` float, `preferredSizeType` varchar(20) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (494.7ms)[0m  [1mCREATE UNIQUE INDEX `index_customers_on_CustID`  ON `customers` (`CustID`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128062158&#39;)[0m
+[1m[35m (40.0ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateGenders.html">CreateGenders</a>
+(20150128064156)</p>
+
+<pre>[1m[36m (275.7ms)[0m  [1mCREATE TABLE `genders` (`Gender` varchar(1) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (490.3ms)[0m  CREATE UNIQUE INDEX `index_genders_on_Gender`  ON `genders` (`Gender`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064156&#39;)
+[1m[36m (41.7ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateSizetypes.html">CreateSizetypes</a>
+(20150128064957)</p>
+
+<pre>[1m[35m (422.8ms)[0m  CREATE TABLE `sizetypes` (`SizeType` varchar(20) NOT NULL, `ToMondo1` float NOT NULL, `ToMondo0` float NOT NULL, `SizeTypeInterval` float NOT NULL, `MinSize` float NOT NULL, `MaxSize` float NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (505.5ms)[0m  [1mCREATE UNIQUE INDEX `index_sizetypes_on_SizeType`  ON `sizetypes` (`SizeType`) [0m
+[1m[35m (1.0ms)[0m  BEGIN
+[1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128064957&#39;)[0m
+[1m[35m (34.7ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a
+href="../CreateTypetorealsizes.html">CreateTypetorealsizes</a>
+(20150128065447)</p>
+
+<pre>[1m[36m (300.3ms)[0m  [1mCREATE TABLE `typetorealsizes` (`T2RS_ID` int(11) NOT NULL, `BrandStyleMaterial` varchar(70) NOT NULL, `ToMondo1` float NOT NULL, `ToMondo0` float NOT NULL, `modified` tinyint(1) NOT NULL, `Uncertainty` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (610.6ms)[0m  CREATE UNIQUE INDEX `index_typetorealsizes_on_T2RS_ID`  ON `typetorealsizes` (`T2RS_ID`) 
+[1m[36m (299.1ms)[0m  [1mCREATE UNIQUE INDEX `index_typetorealsizes_on_BrandStyleMaterial`  ON `typetorealsizes` (`BrandStyleMaterial`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065447&#39;)[0m
+[1m[35m (37.5ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateBrands.html">CreateBrands</a>
+(20150128065759)</p>
+
+<pre>[1m[36m (317.2ms)[0m  [1mCREATE TABLE `brands` (`Brand` varchar(30) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (508.4ms)[0m  CREATE UNIQUE INDEX `index_brands_on_Brand`  ON `brands` (`Brand`) 
+[1m[36m (1.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065759&#39;)
+[1m[36m (24.9ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateStyles.html">CreateStyles</a>
+(20150128065918)</p>
+
+<pre>[1m[35m (294.6ms)[0m  CREATE TABLE `styles` (`Style` varchar(20) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (1166.6ms)[0m  [1mCREATE UNIQUE INDEX `index_styles_on_Style`  ON `styles` (`Style`) [0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (142.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128065918&#39;)[0m
+[1m[35m (66.1ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateMaterials.html">CreateMaterials</a>
+(20150128070117)</p>
+
+<pre>[1m[36m (573.1ms)[0m  [1mCREATE TABLE `materials` (`Material` varchar(20) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (488.0ms)[0m  CREATE UNIQUE INDEX `index_materials_on_Material`  ON `materials` (`Material`) 
+[1m[36m (1.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070117&#39;)
+[1m[36m (37.3ms)[0m  [1mCOMMIT[0m</pre>
+
+<p>Migrating to <a href="../CreateLengthfits.html">CreateLengthfits</a>
+(20150128070629)</p>
+
+<pre>[1m[35m (302.6ms)[0m  CREATE TABLE `lengthfits` (`LengthFit` varchar(20) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+[1m[36m (544.6ms)[0m  [1mCREATE UNIQUE INDEX `index_lengthfits_on_LengthFit`  ON `lengthfits` (`LengthFit`) [0m
+[1m[35m (1.0ms)[0m  BEGIN
+[1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128070629&#39;)[0m
+[1m[35m (26.2ms)[0m  COMMIT</pre>
+
+<p>Migrating to <a href="../CreateShoes.html">CreateShoes</a> (20150128071640)</p>
+
+<pre>[1m[36m (291.2ms)[0m  [1mCREATE TABLE `shoes` (`ShoeID` int(11) NOT NULL, `OwnerID` int(11) NOT NULL, `T2RS_ID` int(11) NOT NULL, `Brand` varchar(30) NOT NULL, `Style` varchar(20) NOT NULL, `Material` varchar(20) NOT NULL, `SizeType` varchar(20) NOT NULL, `LengthFit` varchar(20) NOT NULL, `Size` float NOT NULL, `preRealSize` float, `RealSize` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+[1m[35m (613.4ms)[0m  CREATE UNIQUE INDEX `index_shoes_on_ShoeID`  ON `shoes` (`ShoeID`) 
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (&#39;20150128071640&#39;)
+[1m[36m (52.8ms)[0m  [1mCOMMIT[0m
+[1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (62.5ms)[0m  INSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 06:42:25&#39;, &#39;2015-01-29 06:42:25&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;SizeType&#39; doesn&#39;t have a default value:
+INSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES
+(&#39;2015-01-29 06:42:25&#39;, &#39;2015-01-29 06:42:25&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 06:42:25&#39;, &#39;2015-01-29 06:42:25&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;SizeType&#39; doesn&#39;t have a default value:
+INSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES
+(&#39;2015-01-29 06:42:25&#39;, &#39;2015-01-29 06:42:25&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 06:42:25&#39;, &#39;2015-01-29 06:42:25&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;SizeType&#39; doesn&#39;t have a default value:
+INSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES
+(&#39;2015-01-29 06:42:25&#39;, &#39;2015-01-29 06:42:25&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[36mCustomer Load (93.7ms)[0m  [1mSELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` = &#39;---\n:CustID: :OwnerID\n&#39; LIMIT 1[0m
+[1m[35mCustomer Load (0.0ms)[0m  SELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` = &#39;---\n:CustID: :OwnerID\n&#39; LIMIT 1
+[1m[36mCustomer Load (0.0ms)[0m  [1mSELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` = &#39;---\n:CustID: :OwnerID\n&#39; LIMIT 1[0m
+[1m[36mCustomer Load (0.0ms)[0m  [1mSELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` = &#39;OwnerID&#39; LIMIT 1[0m
+[1m[35mShoe Load (15.6ms)[0m  SELECT `shoes`.`RealSize` FROM `shoes`  WHERE `shoes`.`OwnerID` = &#39;OwnerID&#39;
+[1m[36mCustomer Load (0.0ms)[0m  [1mSELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` IS NULL LIMIT 1[0m
+[1m[35mShoe Load (0.0ms)[0m  SELECT `shoes`.`RealSize` FROM `shoes`  WHERE `shoes`.`OwnerID` IS NULL
+[1m[36mCustomer Load (0.0ms)[0m  [1mSELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` IS NULL LIMIT 1[0m
+[1m[35mShoe Load (0.0ms)[0m  SELECT `shoes`.`RealSize` FROM `shoes`  WHERE `shoes`.`OwnerID` IS NULL
+[1m[36mCustomer Load (0.0ms)[0m  [1mSELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` IS NULL LIMIT 1[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36m (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[35m (0.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36m (0.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+[1m[35mCustomer Load (0.0ms)[0m  SELECT  `customers`.* FROM `customers`  WHERE `customers`.`CustID` IS NULL LIMIT 1
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35m (0.0ms)[0m  ROLLBACK</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2015-01-29 09:32:14 +0200</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (41.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m</pre>
+
+<p>Processing by <a
+href="../WelcomeController.html#method-i-index">WelcomeController#index</a>
+as HTML</p>
+
+<pre>Rendered welcome/index.html.erb within layouts/application (207.1ms)</pre>
+
+<p>Completed 200 OK in 6465ms (Views: 6418.3ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:32:21 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:32:21 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:32:21 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:32:21 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:32:21
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:32:21 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:32:22 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:32:22 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:32:22 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:32:22 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:32:22 +0200</p>
+
+<p>Started GET “/images/rails.png” for 127.0.0.1 at 2015-01-29 09:32:22 +0200</p>
+
+<p>ActionController::RoutingError (No route matches [GET]
+“/images/rails.png”):</p>
+
+<pre>actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.8) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.8) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (116.9ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (346.9ms)</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2015-01-29 09:34:58 +0200 Processing by <a
+href="../WelcomeController.html#method-i-index">WelcomeController#index</a>
+as HTML</p>
+
+<pre>Rendered welcome/index.html.erb within layouts/application (28.0ms)</pre>
+
+<p>Completed 200 OK in 3924ms (Views: 3922.9ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:35:02
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:35:02 +0200</p>
+
+<p>Started GET “/images/rails.png” for 127.0.0.1 at 2015-01-29 09:35:02 +0200</p>
+
+<p>ActionController::RoutingError (No route matches [GET]
+“/images/rails.png”):</p>
+
+<pre>actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.8) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.8) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (170.9ms)</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2015-01-29 09:35:58 +0200 Processing by <a
+href="../WelcomeController.html#method-i-index">WelcomeController#index</a>
+as HTML</p>
+
+<pre>Rendered welcome/index.html.erb within layouts/application (27.0ms)</pre>
+
+<p>Completed 500 Internal Server Error in 365ms</p>
+
+<p>ActionView::Template::Error (undefined local variable or method
+`flash_messages&#39; for #&lt;#&lt;Class:0x5640c18&gt;:0x6500aa8&gt;):</p>
+
+<pre>  43: 
+  44: &lt;body&gt;
+  45:         &lt;div class=&quot;container center hero-unit&quot;&gt;
+  46:                 &lt;%= flash_messages %&gt;
+  47:                 &lt;%= yield %&gt;
+  48:         &lt;/div&gt;
+  49: &lt;/body&gt;
+app/views/layouts/application.html.erb:46:in `_app_views_layouts_application_html_erb__299901231_52942152&#39;
+
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (121.1ms)</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2015-01-29 09:36:36 +0200 Processing by <a
+href="../WelcomeController.html#method-i-index">WelcomeController#index</a>
+as HTML</p>
+
+<pre>Rendered welcome/index.html.erb within layouts/application (25.0ms)</pre>
+
+<p>Completed 200 OK in 320ms (Views: 320.2ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:36:37
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:36:37 +0200</p>
+
+<p>Started GET “/images/rails.png” for 127.0.0.1 at 2015-01-29 09:36:37 +0200</p>
+
+<p>ActionController::RoutingError (No route matches [GET]
+“/images/rails.png”):</p>
+
+<pre>actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.8) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.8) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (178.3ms)</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2015-01-29 09:37:30 +0200 Processing by <a
+href="../WelcomeController.html#method-i-index">WelcomeController#index</a>
+as HTML</p>
+
+<pre>Rendered welcome/index.html.erb within layouts/application (8.0ms)</pre>
+
+<p>Completed 200 OK in 301ms (Views: 301.5ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:37:30
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:37:30 +0200</p>
+
+<p>Started GET “/assets/rails.png” for 127.0.0.1 at 2015-01-29 09:37:30 +0200</p>
+
+<p>Started GET “/” for 127.0.0.1 at 2015-01-29 09:38:09 +0200 Processing by <a
+href="../WelcomeController.html#method-i-index">WelcomeController#index</a>
+as HTML</p>
+
+<pre>Rendered welcome/index.html.erb within layouts/application (2.0ms)</pre>
+
+<p>Completed 200 OK in 302ms (Views: 302.2ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:09 +0200</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:09 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:38:10
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:10 +0200</p>
+
+<p>Started GET “/assets/rails.png” for 127.0.0.1 at 2015-01-29 09:38:10 +0200</p>
+
+<p>Started GET “/index” for 127.0.0.1 at 2015-01-29 09:38:15 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-index">CustomersController#index</a>
+as HTML</p>
+
+<pre>[1m[35mCustomer Load (0.0ms)[0m  SELECT `customers`.* FROM `customers`
+Rendered customers/index.html.erb within layouts/application (4.0ms)</pre>
+
+<p>Completed 200 OK in 371ms (Views: 361.4ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:38:15
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:38:15 +0200</p>
+
+<p>Started GET “/” for 127.0.0.1 at 2015-01-29 09:38:20 +0200 Processing by <a
+href="../WelcomeController.html#method-i-index">WelcomeController#index</a>
+as HTML</p>
+
+<pre>Rendered welcome/index.html.erb within layouts/application (0.0ms)</pre>
+
+<p>Completed 200 OK in 281ms (Views: 281.3ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started GET “/assets/rails.png” for 127.0.0.1 at 2015-01-29 09:38:20 +0200</p>
+
+<p>Started GET “/signup” for 127.0.0.1 at 2015-01-29 09:38:23 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-new">CustomersController#new</a>
+as HTML Completed 500 Internal Server Error in 0ms</p>
+
+<p>NoMethodError (undefined method `save_login_state&#39; for
+#&lt;CustomersController:0x78e5320&gt;):</p>
+
+<pre>activesupport (4.1.8) lib/active_support/callbacks.rb:424:in `block in make_lambda&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:143:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:143:in `block in halting_and_conditional&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:149:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:86:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;
+actionpack (4.1.8) lib/abstract_controller/callbacks.rb:19:in `process_action&#39;
+actionpack (4.1.8) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;
+actionpack (4.1.8) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action&#39;
+activesupport (4.1.8) lib/active_support/notifications.rb:159:in `block in instrument&#39;
+activesupport (4.1.8) lib/active_support/notifications/instrumenter.rb:20:in `instrument&#39;
+activesupport (4.1.8) lib/active_support/notifications.rb:159:in `instrument&#39;
+actionpack (4.1.8) lib/action_controller/metal/instrumentation.rb:30:in `process_action&#39;
+actionpack (4.1.8) lib/action_controller/metal/params_wrapper.rb:250:in `process_action&#39;
+activerecord (4.1.8) lib/active_record/railties/controller_runtime.rb:18:in `process_action&#39;
+actionpack (4.1.8) lib/abstract_controller/base.rb:136:in `process&#39;
+actionview (4.1.8) lib/action_view/rendering.rb:30:in `process&#39;
+actionpack (4.1.8) lib/action_controller/metal.rb:196:in `dispatch&#39;
+actionpack (4.1.8) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch&#39;
+actionpack (4.1.8) lib/action_controller/metal.rb:232:in `block in action&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:82:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:82:in `dispatch&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:50:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/journey/router.rb:73:in `block in call&#39;
+actionpack (4.1.8) lib/action_dispatch/journey/router.rb:59:in `each&#39;
+actionpack (4.1.8) lib/action_dispatch/journey/router.rb:59:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:678:in `call&#39;
+rack (1.5.2) lib/rack/etag.rb:23:in `call&#39;
+rack (1.5.2) lib/rack/conditionalget.rb:25:in `call&#39;
+rack (1.5.2) lib/rack/head.rb:11:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/params_parser.rb:27:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/flash.rb:254:in `call&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/cookies.rb:560:in `call&#39;
+activerecord (4.1.8) lib/active_record/query_cache.rb:36:in `call&#39;
+activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call&#39;
+activerecord (4.1.8) lib/active_record/migration.rb:380:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:82:in `run_callbacks&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.8) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.8) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (171.9ms)</pre>
+
+<p>Started GET “/signup” for 127.0.0.1 at 2015-01-29 09:38:23 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-new">CustomersController#new</a>
+as HTML Completed 500 Internal Server Error in 5ms</p>
+
+<p>NoMethodError (undefined method `save_login_state&#39; for
+#&lt;CustomersController:0x6967908&gt;):</p>
+
+<pre>activesupport (4.1.8) lib/active_support/callbacks.rb:424:in `block in make_lambda&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:143:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:143:in `block in halting_and_conditional&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:149:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:229:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:166:in `block in halting&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:86:in `call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;
+actionpack (4.1.8) lib/abstract_controller/callbacks.rb:19:in `process_action&#39;
+actionpack (4.1.8) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;
+actionpack (4.1.8) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action&#39;
+activesupport (4.1.8) lib/active_support/notifications.rb:159:in `block in instrument&#39;
+activesupport (4.1.8) lib/active_support/notifications/instrumenter.rb:20:in `instrument&#39;
+activesupport (4.1.8) lib/active_support/notifications.rb:159:in `instrument&#39;
+actionpack (4.1.8) lib/action_controller/metal/instrumentation.rb:30:in `process_action&#39;
+actionpack (4.1.8) lib/action_controller/metal/params_wrapper.rb:250:in `process_action&#39;
+activerecord (4.1.8) lib/active_record/railties/controller_runtime.rb:18:in `process_action&#39;
+actionpack (4.1.8) lib/abstract_controller/base.rb:136:in `process&#39;
+actionview (4.1.8) lib/action_view/rendering.rb:30:in `process&#39;
+actionpack (4.1.8) lib/action_controller/metal.rb:196:in `dispatch&#39;
+actionpack (4.1.8) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch&#39;
+actionpack (4.1.8) lib/action_controller/metal.rb:232:in `block in action&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:82:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:82:in `dispatch&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:50:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/journey/router.rb:73:in `block in call&#39;
+actionpack (4.1.8) lib/action_dispatch/journey/router.rb:59:in `each&#39;
+actionpack (4.1.8) lib/action_dispatch/journey/router.rb:59:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/routing/route_set.rb:678:in `call&#39;
+rack (1.5.2) lib/rack/etag.rb:23:in `call&#39;
+rack (1.5.2) lib/rack/conditionalget.rb:25:in `call&#39;
+rack (1.5.2) lib/rack/head.rb:11:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/params_parser.rb:27:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/flash.rb:254:in `call&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/cookies.rb:560:in `call&#39;
+activerecord (4.1.8) lib/active_record/query_cache.rb:36:in `call&#39;
+activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call&#39;
+activerecord (4.1.8) lib/active_record/migration.rb:380:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/callbacks.rb:82:in `run_callbacks&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.8) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.8) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+C:/Ruby21/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (183.1ms)</pre>
+
+<p>Started GET “/signup” for 127.0.0.1 at 2015-01-29 09:39:21 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-new">CustomersController#new</a>
+as HTML</p>
+
+<pre>[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+Rendered customers/new.html.erb within layouts/application (203.1ms)</pre>
+
+<p>Completed 200 OK in 531ms (Views: 515.7ms | ActiveRecord: 15.6ms)</p>
+
+<p>Started GET “/signup” for 127.0.0.1 at 2015-01-29 09:40:10 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-new">CustomersController#new</a>
+as HTML</p>
+
+<pre>[1m[35m (1.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+Rendered customers/new.html.erb within layouts/application (13.0ms)</pre>
+
+<p>Completed 500 Internal Server Error in 33ms</p>
+
+<p>ActionView::Template::Error (undefined method `SizeType&#39; for
+“Europe”:String):</p>
+
+<pre>  47:                 &lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;
+  48:                 &lt;%= f.label &quot;Preferred SizeType:&quot;, class: &quot;col-sm-3 col-md-2 control-label&quot; %&gt;
+  49:                 &lt;div class=&quot;col-sm-9 col-md-4&quot;&gt;
+  50:                         &lt;%= f.collection_select :preferredSizeType, Sizetype.pluck(:SizeType), :SizeType, :SizeType, {}, {class: &quot;form-control&quot;} %&gt;
+  51:                 &lt;/div&gt;
+  52:                 &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
+  53:         &lt;/div&gt;
+app/views/customers/new.html.erb:50:in `block in _app_views_customers_new_html_erb__990184818_68792100&#39;
+app/views/customers/new.html.erb:2:in `_app_views_customers_new_html_erb__990184818_68792100&#39;
+
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered C:/Ruby21/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (119.5ms)</pre>
+
+<p>Started GET “/signup” for 127.0.0.1 at 2015-01-29 09:41:26 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-new">CustomersController#new</a>
+as HTML</p>
+
+<pre>[1m[36mSizetype Load (1.0ms)[0m  [1mSELECT `sizetypes`.`SizeType` FROM `sizetypes`[0m
+Rendered customers/new.html.erb within layouts/application (5.0ms)</pre>
+
+<p>Completed 200 OK in 323ms (Views: 320.6ms | ActiveRecord: 1.0ms)</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:41:27
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:41:27 +0200</p>
+
+<pre>[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`</pre>
+
+<p>Started GET “/signup” for 127.0.0.1 at 2015-01-29 09:44:58 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-new">CustomersController#new</a>
+as HTML</p>
+
+<pre>[1m[35mSizetype Load (1.0ms)[0m  SELECT `sizetypes`.`SizeType` FROM `sizetypes`
+Rendered customers/new.html.erb within layouts/application (5.0ms)</pre>
+
+<p>Completed 200 OK in 317ms (Views: 315.2ms | ActiveRecord: 1.0ms)</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 09:44:58
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+09:44:58 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+09:44:59 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+09:44:59 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+09:44:59 +0200</p>
+
+<pre>[1m[36mSizetype Load (15.6ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`
+[1m[36mSizetype Load (0.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`</pre>
+
+<p>Started GET “/signup” for 127.0.0.1 at 2015-01-29 11:55:51 +0200 Processing
+by <a
+href="../CustomersController.html#method-i-new">CustomersController#new</a>
+as HTML</p>
+
+<pre>[1m[36mSizetype Load (1.0ms)[0m  [1mSELECT `sizetypes`.* FROM `sizetypes`[0m
+Rendered customers/new.html.erb within layouts/application (6.0ms)</pre>
+
+<p>Completed 200 OK in 375ms (Views: 372.8ms | ActiveRecord: 1.0ms)</p>
+
+<p>Started GET “/assets/customers.css?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/custom.css?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/sessions.css?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/application.css?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 127.0.0.1 at 2015-01-29 11:55:52
++0200</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/customers.js?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/sessions.js?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<p>Started GET “/assets/application.js?body=1” for 127.0.0.1 at 2015-01-29
+11:55:52 +0200</p>
+
+<pre>[1m[36m (15.7ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 12:47:44&#39;, &#39;2015-01-29 12:47:44&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;Brand&#39; doesn&#39;t have a default value:
+INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+12:47:44&#39;, &#39;2015-01-29 12:47:44&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 12:50:24&#39;, &#39;2015-01-29 12:50:24&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;Brand&#39; doesn&#39;t have a default value:
+INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+12:50:24&#39;, &#39;2015-01-29 12:50:24&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 12:51:20&#39;, &#39;2015-01-29 12:51:20&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;Brand&#39; doesn&#39;t have a default value:
+INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+12:51:20&#39;, &#39;2015-01-29 12:51:20&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 12:54:43&#39;, &#39;2015-01-29 12:54:43&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;Brand&#39; doesn&#39;t have a default value:
+INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+12:54:43&#39;, &#39;2015-01-29 12:54:43&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36mBrand Load (0.0ms)[0m  [1mSELECT `brands`.* FROM `brands`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 12:57:56&#39;, &#39;2015-01-29 12:57:56&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;Brand&#39; doesn&#39;t have a default value:
+INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+12:57:56&#39;, &#39;2015-01-29 12:57:56&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 13:01:21&#39;, &#39;2015-01-29 13:01:21&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;Brand&#39; doesn&#39;t have a default value:
+INSERT INTO `brands` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+13:01:21&#39;, &#39;2015-01-29 13:01:21&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (93.8ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Adidas&#39;, &#39;2015-01-29 13:01:51&#39;, &#39;2015-01-29 13:01:51&#39;)[0m
+[1m[35m (62.5ms)[0m  COMMIT
+[1m[36mBrand Load (0.0ms)[0m  [1mSELECT `brands`.* FROM `brands`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (166.8ms)[0m  [1mDELETE FROM `brands` WHERE `brands`.`Brand` = &#39;Adidas&#39;[0m
+[1m[35m (143.9ms)[0m  COMMIT
+[1m[36mBrand Load (0.0ms)[0m  [1mSELECT `brands`.* FROM `brands`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;A. Testoni&#39;, &#39;2015-01-29 13:07:09&#39;, &#39;2015-01-29 13:07:09&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Adidas&#39;, &#39;2015-01-29 13:07:09&#39;, &#39;2015-01-29 13:07:09&#39;)
+[1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (62.5ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Alden&#39;, &#39;2015-01-29 13:07:09&#39;, &#39;2015-01-29 13:07:09&#39;)[0m
+[1m[35m (62.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (46.9ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Allen Edmonds&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.7ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Asics&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Bass&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (62.5ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Bates&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Berluti&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)
+[1m[36m (36.1ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.3ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Birkenstock&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Bostonian&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Brass Boot&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Bruno Magli&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)
+[1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Calvin Klein&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Caterpillar&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (93.7ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Clarks&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Cola Haan&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)
+[1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Columbia&#39;, &#39;2015-01-29 13:07:10&#39;, &#39;2015-01-29 13:07:10&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.3ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Converse&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Crevo&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Crockett &amp; Jones&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Crocs&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dan Post&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (15.6ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;DC Shoes&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Deer Stags&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.5ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dingo&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dockers&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.3ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dolce &amp; Gabbana&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dr. Martens&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.7ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dr. Martens Industrial&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT
+[1m[36m (15.6ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dr. Scholl\&#39;s&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dr. Scholl\&#39;s Work&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (62.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Dr. Tuxedo by Benjamin Walk&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Florsheim Shoe&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)[0m
+[1m[35m (15.7ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Florsheim Work&#39;, &#39;2015-01-29 13:07:11&#39;, &#39;2015-01-29 13:07:11&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.2ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;GBX&#39;, &#39;2015-01-29 13:07:12&#39;, &#39;2015-01-29 13:07:12&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Giorgio Brutini&#39;, &#39;2015-01-29 13:07:12&#39;, &#39;2015-01-29 13:07:12&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.2ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Gucci&#39;, &#39;2015-01-29 13:07:12&#39;, &#39;2015-01-29 13:07:12&#39;)[0m
+[1m[35m (78.2ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Harley Davidson&#39;, &#39;2015-01-29 13:07:12&#39;, &#39;2015-01-29 13:07:12&#39;)
+[1m[36m (62.6ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Hi-Tec&#39;, &#39;2015-01-29 13:07:12&#39;, &#39;2015-01-29 13:07:12&#39;)[0m
+[1m[35m (140.7ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Iron Age&#39;, &#39;2015-01-29 13:07:12&#39;, &#39;2015-01-29 13:07:12&#39;)
+[1m[36m (390.7ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.3ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Island Surf&#39;, &#39;2015-01-29 13:07:12&#39;, &#39;2015-01-29 13:07:12&#39;)[0m
+[1m[35m (469.1ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.3ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;J.M. Weston&#39;, &#39;2015-01-29 13:07:13&#39;, &#39;2015-01-29 13:07:13&#39;)
+[1m[36m (218.8ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (46.9ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Jimmy Choo&#39;, &#39;2015-01-29 13:07:13&#39;, &#39;2015-01-29 13:07:13&#39;)[0m
+[1m[35m (234.4ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.3ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;John Deere&#39;, &#39;2015-01-29 13:07:13&#39;, &#39;2015-01-29 13:07:13&#39;)
+[1m[36m (299.7ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.2ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;John Lobb Bootmaker&#39;, &#39;2015-01-29 13:07:14&#39;, &#39;2015-01-29 13:07:14&#39;)[0m
+[1m[35m (640.6ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (93.8ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;John Varvatos&#39;, &#39;2015-01-29 13:07:14&#39;, &#39;2015-01-29 13:07:14&#39;)
+[1m[36m (328.2ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Johnston &amp; Murphy&#39;, &#39;2015-01-29 13:07:15&#39;, &#39;2015-01-29 13:07:15&#39;)[0m
+[1m[35m (156.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;K-Swiss&#39;, &#39;2015-01-29 13:07:15&#39;, &#39;2015-01-29 13:07:15&#39;)
+[1m[36m (437.8ms)[0m  [1mCOMMIT[0m
+[1m[35m (15.6ms)[0m  BEGIN
+[1m[36mSQL (46.9ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Kamik&#39;, &#39;2015-01-29 13:07:16&#39;, &#39;2015-01-29 13:07:16&#39;)[0m
+[1m[35m (343.8ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Kenneth Cole Productions&#39;, &#39;2015-01-29 13:07:16&#39;, &#39;2015-01-29 13:07:16&#39;)
+[1m[36m (125.0ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Khombu&#39;, &#39;2015-01-29 13:07:16&#39;, &#39;2015-01-29 13:07:16&#39;)[0m
+[1m[35m (156.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;L.B Evans&#39;, &#39;2015-01-29 13:07:16&#39;, &#39;2015-01-29 13:07:16&#39;)
+[1m[36m (125.1ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.3ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Laredo&#39;, &#39;2015-01-29 13:07:16&#39;, &#39;2015-01-29 13:07:16&#39;)[0m
+[1m[35m (537.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.3ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Lugz&#39;, &#39;2015-01-29 13:07:17&#39;, &#39;2015-01-29 13:07:17&#39;)
+[1m[36m (218.8ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Madden&#39;, &#39;2015-01-29 13:07:17&#39;, &#39;2015-01-29 13:07:17&#39;)[0m
+[1m[35m (484.4ms)[0m  COMMIT
+[1m[36m (0.1ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (1.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Magnum&#39;, &#39;2015-01-29 13:07:18&#39;, &#39;2015-01-29 13:07:18&#39;)
+[1m[36m (238.6ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Margaritaville&#39;, &#39;2015-01-29 13:07:18&#39;, &#39;2015-01-29 13:07:18&#39;)[0m
+[1m[35m (468.8ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Mark Nason Skechers&#39;, &#39;2015-01-29 13:07:19&#39;, &#39;2015-01-29 13:07:19&#39;)
+[1m[36m (203.2ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.2ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;McRae&#39;, &#39;2015-01-29 13:07:19&#39;, &#39;2015-01-29 13:07:19&#39;)[0m
+[1m[35m (296.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Neil M Footwear&#39;, &#39;2015-01-29 13:07:19&#39;, &#39;2015-01-29 13:07:19&#39;)
+[1m[36m (453.4ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (109.4ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;New Balance&#39;, &#39;2015-01-29 13:07:20&#39;, &#39;2015-01-29 13:07:20&#39;)[0m
+[1m[35m (273.7ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Nike&#39;, &#39;2015-01-29 13:07:20&#39;, &#39;2015-01-29 13:07:20&#39;)
+[1m[36m (234.4ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Nunn Bush&#39;, &#39;2015-01-29 13:07:20&#39;, &#39;2015-01-29 13:07:20&#39;)[0m
+[1m[35m (375.1ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Prada&#39;, &#39;2015-01-29 13:07:21&#39;, &#39;2015-01-29 13:07:21&#39;)
+[1m[36m (365.8ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.7ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Propet&#39;, &#39;2015-01-29 13:07:21&#39;, &#39;2015-01-29 13:07:21&#39;)[0m
+[1m[35m (218.8ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Puma&#39;, &#39;2015-01-29 13:07:21&#39;, &#39;2015-01-29 13:07:21&#39;)
+[1m[36m (437.5ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Reebok&#39;, &#39;2015-01-29 13:07:22&#39;, &#39;2015-01-29 13:07:22&#39;)[0m
+[1m[35m (116.1ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Reebok Duty&#39;, &#39;2015-01-29 13:07:22&#39;, &#39;2015-01-29 13:07:22&#39;)
+[1m[36m (125.1ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.3ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Reebok Work&#39;, &#39;2015-01-29 13:07:22&#39;, &#39;2015-01-29 13:07:22&#39;)[0m
+[1m[35m (562.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Rockport&#39;, &#39;2015-01-29 13:07:23&#39;, &#39;2015-01-29 13:07:23&#39;)
+[1m[36m (265.7ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Rockport Works&#39;, &#39;2015-01-29 13:07:23&#39;, &#39;2015-01-29 13:07:23&#39;)[0m
+[1m[35m (406.3ms)[0m  COMMIT
+[1m[36m (15.6ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Rugged Shark&#39;, &#39;2015-01-29 13:07:23&#39;, &#39;2015-01-29 13:07:23&#39;)
+[1m[36m (484.8ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;RW by Robert Wayne&#39;, &#39;2015-01-29 13:07:24&#39;, &#39;2015-01-29 13:07:24&#39;)[0m
+[1m[35m (325.2ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Salvatore Ferragamo&#39;, &#39;2015-01-29 13:07:24&#39;, &#39;2015-01-29 13:07:24&#39;)
+[1m[36m (171.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Santoni&#39;, &#39;2015-01-29 13:07:24&#39;, &#39;2015-01-29 13:07:24&#39;)[0m
+[1m[35m (93.8ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Saucony&#39;, &#39;2015-01-29 13:07:25&#39;, &#39;2015-01-29 13:07:25&#39;)
+[1m[36m (437.6ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Skechers&#39;, &#39;2015-01-29 13:07:25&#39;, &#39;2015-01-29 13:07:25&#39;)[0m
+[1m[35m (312.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Sorel&#39;, &#39;2015-01-29 13:07:25&#39;, &#39;2015-01-29 13:07:25&#39;)
+[1m[36m (625.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Sperry Top-Sider&#39;, &#39;2015-01-29 13:07:26&#39;, &#39;2015-01-29 13:07:26&#39;)[0m
+[1m[35m (187.6ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.2ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Stacy Adams&#39;, &#39;2015-01-29 13:07:26&#39;, &#39;2015-01-29 13:07:26&#39;)
+[1m[36m (296.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (47.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Streetcars&#39;, &#39;2015-01-29 13:07:26&#39;, &#39;2015-01-29 13:07:26&#39;)[0m
+[1m[35m (303.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Teva&#39;, &#39;2015-01-29 13:07:27&#39;, &#39;2015-01-29 13:07:27&#39;)
+[1m[36m (406.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Timberland&#39;, &#39;2015-01-29 13:07:27&#39;, &#39;2015-01-29 13:07:27&#39;)[0m
+[1m[35m (187.6ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Timberland Pro&#39;, &#39;2015-01-29 13:07:28&#39;, &#39;2015-01-29 13:07:28&#39;)
+[1m[36m (509.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Tod\&#39;s&#39;, &#39;2015-01-29 13:07:28&#39;, &#39;2015-01-29 13:07:28&#39;)[0m
+[1m[35m (218.8ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.2ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Vans&#39;, &#39;2015-01-29 13:07:28&#39;, &#39;2015-01-29 13:07:28&#39;)
+[1m[36m (343.8ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Wenger Swiss Army&#39;, &#39;2015-01-29 13:07:29&#39;, &#39;2015-01-29 13:07:29&#39;)[0m
+[1m[35m (488.0ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Wolverine&#39;, &#39;2015-01-29 13:07:29&#39;, &#39;2015-01-29 13:07:29&#39;)
+[1m[36m (109.4ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Woolrich&#39;, &#39;2015-01-29 13:07:29&#39;, &#39;2015-01-29 13:07:29&#39;)[0m
+[1m[35m (312.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `brands` (`Brand`, `created_at`, `updated_at`) VALUES (&#39;Yves Saint-Laurent&#39;, &#39;2015-01-29 13:07:30&#39;, &#39;2015-01-29 13:07:30&#39;)
+[1m[36m (380.6ms)[0m  [1mCOMMIT[0m
+[1m[35mBrand Load (0.0ms)[0m  SELECT `brands`.* FROM `brands`
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `styles` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 13:08:45&#39;, &#39;2015-01-29 13:08:45&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;Style&#39; doesn&#39;t have a default value:
+INSERT INTO `styles` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+13:08:45&#39;, &#39;2015-01-29 13:08:45&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `styles` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 13:09:33&#39;, &#39;2015-01-29 13:09:33&#39;)</pre>
+
+<p>Mysql2::Error: Field &#39;Style&#39; doesn&#39;t have a default value:
+INSERT INTO `styles` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+13:09:33&#39;, &#39;2015-01-29 13:09:33&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 13:09:33&#39;, &#39;2015-01-29 13:09:33&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;Style&#39; doesn&#39;t have a default value:
+INSERT INTO `styles` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+13:09:33&#39;, &#39;2015-01-29 13:09:33&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (62.5ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Balmoral&#39;, &#39;2015-01-29 13:11:06&#39;, &#39;2015-01-29 13:11:06&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35mSQL (62.5ms)[0m  DELETE FROM `styles`
+[1m[36mStyle Load (0.0ms)[0m  [1mSELECT `styles`.* FROM `styles`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Balmoral&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Boat Shoe&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)
+[1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Brouge&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)[0m
+[1m[35m (62.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Cross Trainer&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Derby&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)[0m
+[1m[35m (15.7ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Dress Boot&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)
+[1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Dress Shoe&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (46.9ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Driving Shoe&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Hiker&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)[0m
+[1m[35m (31.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Loafer (Slip-on)&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)
+[1m[36m (62.6ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (125.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Oxford (Lace-up)&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)[0m
+[1m[35m (62.5ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (78.2ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Patent Leather&#39;, &#39;2015-01-29 13:12:46&#39;, &#39;2015-01-29 13:12:46&#39;)
+[1m[36m (109.4ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (62.4ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Penny Loafer&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Runner&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)
+[1m[36m (46.8ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Saddle Shoe&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.3ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Sandal&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Tennis&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Walker&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Wingtip&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (31.3ms)[0m  INSERT INTO `styles` (`Style`, `created_at`, `updated_at`) VALUES (&#39;Work Boot&#39;, &#39;2015-01-29 13:12:47&#39;, &#39;2015-01-29 13:12:47&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35mStyle Load (0.0ms)[0m  SELECT  `styles`.* FROM `styles`   ORDER BY `styles`.`Style` ASC LIMIT 1
+[1m[36mStyle Load (0.0ms)[0m  [1mSELECT  `styles`.* FROM `styles`   ORDER BY `styles`.`Style` ASC LIMIT 1[0m
+[1m[35mBrand Load (0.0ms)[0m  SELECT  `brands`.* FROM `brands`   ORDER BY `brands`.`Brand` ASC LIMIT 1
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (46.9ms)[0m  INSERT INTO `materials` (`Material`, `created_at`, `updated_at`) VALUES (&#39;Leather&#39;, &#39;2015-01-29 13:19:13&#39;, &#39;2015-01-29 13:19:13&#39;)
+[1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.3ms)[0m  [1mUPDATE `materials` SET `Material` = &#39;Leatherette&#39;, `updated_at` = &#39;2015-01-29 13:19:48&#39; WHERE `materials`.`Material` = &#39;Leather&#39;[0m
+[1m[35m (78.1ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `materials` (`Material`, `created_at`, `updated_at`) VALUES (&#39;Leather&#39;, &#39;2015-01-29 13:20:15&#39;, &#39;2015-01-29 13:20:15&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35mMaterial Load (0.0ms)[0m  SELECT `materials`.* FROM `materials`
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `materials` (`Material`, `created_at`, `updated_at`) VALUES (&#39;Polyurethane&#39;, &#39;2015-01-29 13:20:54&#39;, &#39;2015-01-29 13:20:54&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `materials` (`Material`, `created_at`, `updated_at`) VALUES (&#39;PVC&#39;, &#39;2015-01-29 13:21:48&#39;, &#39;2015-01-29 13:21:48&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `materials` (`Material`, `created_at`, `updated_at`) VALUES (&#39;Rubber&#39;, &#39;2015-01-29 13:22:22&#39;, &#39;2015-01-29 13:22:22&#39;)
+[1m[36m (156.2ms)[0m  [1mCOMMIT[0m
+[1m[35mMaterial Load (0.0ms)[0m  SELECT `materials`.* FROM `materials`
+[1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `materials`[0m
+[1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM `brands`
+[1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `styles`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `genders` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 13:30:20&#39;, &#39;2015-01-29 13:30:20&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;Gender&#39; doesn&#39;t have a default value:
+INSERT INTO `genders` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29
+13:30:20&#39;, &#39;2015-01-29 13:30:20&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (62.5ms)[0m  INSERT INTO `genders` (`Gender`, `created_at`, `updated_at`) VALUES (&#39;M&#39;, &#39;2015-01-29 13:32:00&#39;, &#39;2015-01-29 13:32:00&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (31.3ms)[0m  [1mINSERT INTO `genders` (`Gender`, `created_at`, `updated_at`) VALUES (&#39;M&#39;, &#39;2015-01-29 13:32:32&#39;, &#39;2015-01-29 13:32:32&#39;)[0m</pre>
+
+<p>Mysql2::Error: Duplicate entry &#39;M&#39; for key
+&#39;index_genders_on_Gender&#39;: INSERT INTO `genders` (`Gender`,
+`created_at`, `updated_at`) VALUES (&#39;M&#39;, &#39;2015-01-29
+13:32:32&#39;, &#39;2015-01-29 13:32:32&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `genders` (`Gender`, `created_at`, `updated_at`) VALUES (&#39;F&#39;, &#39;2015-01-29 13:32:32&#39;, &#39;2015-01-29 13:32:32&#39;)
+[1m[36m (78.2ms)[0m  [1mCOMMIT[0m
+[1m[35mGender Load (0.0ms)[0m  SELECT `genders`.* FROM `genders`
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (46.9ms)[0m  INSERT INTO `lengthfits` (`LengthFit`, `created_at`, `updated_at`) VALUES (&#39;Too Short&#39;, &#39;2015-01-29 13:34:30&#39;, &#39;2015-01-29 13:34:30&#39;)
+[1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `lengthfits` (`LengthFit`, `created_at`, `updated_at`) VALUES (&#39;Slightly Short&#39;, &#39;2015-01-29 13:35:06&#39;, &#39;2015-01-29 13:35:06&#39;)[0m
+[1m[35m (93.8ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `lengthfits` (`LengthFit`, `created_at`, `updated_at`) VALUES (&#39;Perfect&#39;, &#39;2015-01-29 13:35:30&#39;, &#39;2015-01-29 13:35:30&#39;)
+[1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `lengthfits` (`LengthFit`, `created_at`, `updated_at`) VALUES (&#39;Slightly Long&#39;, &#39;2015-01-29 13:36:05&#39;, &#39;2015-01-29 13:36:05&#39;)[0m
+[1m[35m (78.1ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (62.6ms)[0m  INSERT INTO `lengthfits` (`LengthFit`, `created_at`, `updated_at`) VALUES (&#39;Too Long&#39;, &#39;2015-01-29 13:36:26&#39;, &#39;2015-01-29 13:36:26&#39;)
+[1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+[1m[35mLengthfit Load (0.0ms)[0m  SELECT `lengthfits`.* FROM `lengthfits`
+[1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `lengthfits`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (46.9ms)[0m  [1mINSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (0.0, 0.0, &#39;SizeType&#39;, 0.0, 0.0, 0.0, &#39;2015-01-29 13:46:18&#39;, &#39;2015-01-29 13:46:18&#39;)[0m
+[1m[35m (94.0ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (125.1ms)[0m  INSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (49.0, 32.0, &#39;Europe&#39;, 0.5, -10.0, 6.66667, &#39;2015-01-29 13:46:18&#39;, &#39;2015-01-29 13:46:18&#39;)</pre>
+
+<p>Mysql2::Error: Duplicate entry &#39;Europe&#39; for key
+&#39;index_sizetypes_on_SizeType&#39;: INSERT INTO `sizetypes` (`MaxSize`,
+`MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`,
+`created_at`, `updated_at`) VALUES (49.0, 32.0, &#39;Europe&#39;, 0.5,
+-10.0, 6.66667, &#39;2015-01-29 13:46:18&#39;, &#39;2015-01-29
+13:46:18&#39;)</p>
+
+<pre>[1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`
+[1m[36mSQL (46.9ms)[0m  [1mDELETE FROM `sizetypes`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (0.0, 0.0, &#39;Europe;6&#39;, 50.0, 0.0, 67.0, &#39;2015-01-29 13:57:40&#39;, &#39;2015-01-29 13:57:40&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (0.0, 0.0, &#39;Mondopoint;1&#39;, 0.0, 0.0, 0.0, &#39;2015-01-29 13:57:40&#39;, &#39;2015-01-29 13:57:40&#39;)
+[1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (15.6ms)[0m  [1mINSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (0.0, 0.0, &#39;UK/Australia;8&#39;, 50.0, 67.0, 47.0, &#39;2015-01-29 13:57:40&#39;, &#39;2015-01-29 13:57:40&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.6ms)[0m  INSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (0.0, 0.0, &#39;US/Canada;8&#39;, 50.0, 0.0, 47.0, &#39;2015-01-29 13:57:41&#39;, &#39;2015-01-29 13:57:41&#39;)
+[1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+[1m[35m (15.6ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`SizeType`, `created_at`, `updated_at`) VALUES (&#39;;;;;;&#39;, &#39;2015-01-29 13:57:41&#39;, &#39;2015-01-29 13:57:41&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;ToMondo1&#39; doesn&#39;t have a default value:
+INSERT INTO `sizetypes` (`SizeType`, `created_at`, `updated_at`) VALUES
+(&#39;;;;;;&#39;, &#39;2015-01-29 13:57:41&#39;, &#39;2015-01-29
+13:57:41&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `sizetypes`[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT `sizetypes`.* FROM `sizetypes`
+[1m[36mSQL (140.6ms)[0m  [1mDELETE FROM `sizetypes`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`SizeType`, `created_at`, `updated_at`) VALUES (&#39;Europe;6.67;-10.00;0.50;32.00;49.00&#39;, &#39;2015-01-29 14:02:33&#39;, &#39;2015-01-29 14:02:33&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;ToMondo1&#39; doesn&#39;t have a default value:
+INSERT INTO `sizetypes` (`SizeType`, `created_at`, `updated_at`) VALUES
+(&#39;Europe;6.67;-10.00;0.50;32.00;49.00&#39;, &#39;2015-01-29
+14:02:33&#39;, &#39;2015-01-29 14:02:33&#39;)</p>
+
+<pre>[1m[35m (0.0ms)[0m  ROLLBACK
+[1m[36mSQL (0.0ms)[0m  [1mDELETE FROM `sizetypes`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (49.0, 32.0, &#39;Europe&#39;, 0.5, -10.0, 6.67, &#39;2015-01-29 14:06:44&#39;, &#39;2015-01-29 14:06:44&#39;)[0m
+[1m[35m (125.0ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (320.0, 200.0, &#39;Mondopoint&#39;, 5.0, 0.0, 1.0, &#39;2015-01-29 14:06:44&#39;, &#39;2015-01-29 14:06:44&#39;)
+[1m[36m (94.4ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (14.0, 0.0, &#39;UK/Australia&#39;, 0.5, 201.67, 8.47, &#39;2015-01-29 14:06:45&#39;, &#39;2015-01-29 14:06:45&#39;)[0m
+[1m[35m (188.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (15.7ms)[0m  INSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (15.0, 1.0, &#39;US/Canada&#39;, 0.5, 292.0, 8.47, &#39;2015-01-29 14:06:45&#39;, &#39;2015-01-29 14:06:45&#39;)
+[1m[36m (109.4ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES (&#39;2015-01-29 14:06:45&#39;, &#39;2015-01-29 14:06:45&#39;)[0m</pre>
+
+<p>Mysql2::Error: Field &#39;SizeType&#39; doesn&#39;t have a default value:
+INSERT INTO `sizetypes` (`created_at`, `updated_at`) VALUES
+(&#39;2015-01-29 14:06:45&#39;, &#39;2015-01-29 14:06:45&#39;)</p>
+
+<pre>[1m[35m (15.7ms)[0m  ROLLBACK
+[1m[36mSQL (46.9ms)[0m  [1mDELETE FROM `sizetypes`[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (49.0, 32.0, &#39;Europe&#39;, 0.5, -10.0, 6.67, &#39;2015-01-29 14:08:24&#39;, &#39;2015-01-29 14:08:24&#39;)[0m
+[1m[35m (46.9ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (320.0, 200.0, &#39;Mondopoint&#39;, 5.0, 0.0, 1.0, &#39;2015-01-29 14:08:24&#39;, &#39;2015-01-29 14:08:24&#39;)
+[1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+[1m[35m (0.0ms)[0m  BEGIN
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (14.0, 0.0, &#39;UK/Australia&#39;, 0.5, 201.67, 8.47, &#39;2015-01-29 14:08:25&#39;, &#39;2015-01-29 14:08:25&#39;)[0m
+[1m[35m (31.3ms)[0m  COMMIT
+[1m[36m (0.0ms)[0m  [1mBEGIN[0m
+[1m[35mSQL (0.0ms)[0m  INSERT INTO `sizetypes` (`MaxSize`, `MinSize`, `SizeType`, `SizeTypeInterval`, `ToMondo0`, `ToMondo1`, `created_at`, `updated_at`) VALUES (15.0, 1.0, &#39;US/Canada&#39;, 0.5, 292.0, 8.47, &#39;2015-01-29 14:08:25&#39;, &#39;2015-01-29 14:08:25&#39;)
+[1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+[1m[35mSizetype Load (0.0ms)[0m  SELECT  `sizetypes`.* FROM `sizetypes`   ORDER BY `sizetypes`.`SizeType` ASC LIMIT 1</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

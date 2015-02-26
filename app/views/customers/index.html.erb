@@ -1,0 +1,30 @@
+<div class="center hero-unit">
+	<h1>List of all customers</h1>
+
+	<br><table class="table table-striped">
+		<thead>
+			<tr class="row">
+				<th class="col-md-1"><strong>CustID</strong></th>
+				<th class="col-md-4"><strong>Email</strong></th>
+				<th class="col-md-1"><strong>Gender</strong></th>
+				<th class="col-md-2"><strong>ShoeSize</strong></th>
+				<th class="col-md-2"><strong>ShoeSizeError</strong></th>
+				<th class="col-md-2"><strong>Home Page</strong></th>
+			</tr>
+		</thead>
+
+		<tbody><% @customers.each do |customer| %>
+			<tr class="row">
+				<td align="right"><%= customer.CustID %></td>
+				<td align="left"><%= customer.Email %></td>
+				<td align="left"><%= customer.Gender %></td>
+				<td align="right"><%= customer.ShoeSize %></td>
+				<td align="right"><%= customer.ShoeSizeError %></td>
+				<td><%= link_to "Go to customer", home_path(CustID: customer.CustID) %></td>
+			</tr>
+		<% end %></tbody>
+	</table>
+
+	<br><p><%= link_to "New Customer", signup_path %></p>
+	<p><%= link_to "Back to Welcome page", controller: "welcome", action: "index" %></p>
+</div>

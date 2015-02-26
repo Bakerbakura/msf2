@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  SizeType: MyString
+  ToMondo1: 1.5
+  ToMondo0: 1.5
+  SizeTypeInterval: 1.5
+  MinSize: 1.5
+  MaxSize: 1.5
+
+two:
+  SizeType: MyString
+  ToMondo1: 1.5
+  ToMondo0: 1.5
+  SizeTypeInterval: 1.5
+  MinSize: 1.5
+  MaxSize: 1.5

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  T2RS_ID: 1
+  BrandStyleMaterial: MyString
+  ToMondo1: 1.5
+  ToMondo0: 1.5
+  modified: false
+  Uncertainty: 1.5
+
+two:
+  T2RS_ID: 1
+  BrandStyleMaterial: MyString
+  ToMondo1: 1.5
+  ToMondo0: 1.5
+  modified: false
+  Uncertainty: 1.5

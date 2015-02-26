@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  OwnerID: 1
+  PreSize: 1.5
+  RealSize: 1.5
+  ShoeSize: 1.5
+
+two:
+  OwnerID: 1
+  PreSize: 1.5
+  RealSize: 1.5
+  ShoeSize: 1.5
