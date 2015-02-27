@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
 	self.primary_key = :CustID
-#  attr_accessor :CustID, :Email, :Email_confirmation, :Gender, :ShoeSize, :ShoeSizeError, :password, :password_confirmation, :preferredSizeType
+  has_many :shoes, primary_key: "CustID", foreign_key: "OwnerID"
   
   # validates_presence_of :Email, :Gender, :password, :preferredSizeType
   # validates_presence_of :password_confirmation

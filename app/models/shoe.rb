@@ -1,6 +1,8 @@
 class Shoe < ActiveRecord::Base
 	self.primary_key = :ShoeID
 #	attr_accessor :ShoeID, :OwnerID, :T2RS_ID, :Brand, :Style, :Material, :SizeType, :LengthFit, :Size, :preRealSize, :RealSize
+  belongs_to :customer, primary_key: "CustID", foreign_key: "OwnerID"
+  belongs_to :typetorealsize, primary_key: "T2RS_ID", foreign_key: "T2RS_ID"
 
   before_save do
   	t2rs = Typetorealsize.find_by_BrandStyleMaterial!("#{self.Brand}|#{self.Style}|#{self.Material}")

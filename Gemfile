@@ -51,10 +51,13 @@ group :production do
 	gem 'rails_12factor'
 end
 
-# Populate seeds.rb file in development environment
+# Populate seeds.rb file from database in development environment
 group :development do
 	gem 'seed_dump', '~>3.2.1'
 end
 
 # Used for statistical calculation purposes
 gem 'descriptive_statistics', '~> 2.4.0', :require => 'descriptive_statistics/safe'
+
+# Schedule tasks, especially T2RS.update
+gem 'rufus-scheduler', '~> 3.0.9'

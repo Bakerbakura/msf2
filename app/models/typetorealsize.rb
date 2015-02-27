@@ -3,6 +3,7 @@ class Typetorealsize < ActiveRecord::Base
 
 	self.primary_key = :T2RS_ID
 #	attr_accessor :T2RS_ID, :BrandStyleMaterial, :ToMondo1, :ToMondo0, :modified, :Uncertainty
+	has_many :shoes, primary_key: "T2RS_ID", foreign_key: "T2RS_ID"
 
 	def Typetorealsize.update_entry(_t2rsid)
 		row_limit = 30
@@ -12,8 +13,8 @@ class Typetorealsize < ActiveRecord::Base
 		
 		T2rsEntryInfo.delete_all
 		T2rsEntryInfo.connection.execute("INSERT INTO t2rs_entry_infos(\"OwnerID\", \"PreSize\", \"RealSize\", \"ShoeSize\")
-			SELECT shoes.OwnerID, shoes.preRealSize, shoes.RealSize, customers.ShoeSize FROM customers, shoes
-			WHERE shoes.Brand = '#{brand}' AND shoes.Style = '#{style}' AND shoes.material = '#{material}' AND shoes.OwnerID = customers.CustID")
+			SELECT shoes.\"OwnerID\", shoes.\"preRealSize\", shoes.\"RealSize\", customers.\"ShoeSize\" FROM customers, shoes
+			WHERE shoes.\"Brand\" = '#{brand}' AND shoes.\"Style\" = '#{style}' AND shoes.\"Material\" = '#{material}' AND shoes.\"OwnerID\" = customers.\"CustID\"")
 		t2rs_entry_info = T2rsEntryInfo.all.limit(row_limit)
 		ndiff = t2rs_entry_info.distinct.count(:PreSize)
 
@@ -35,8 +36,8 @@ class Typetorealsize < ActiveRecord::Base
 
 		AffectedShoe.delete_all
 		AffectedShoe.connection.execute("INSERT INTO affected_shoes(\"ShoeID\", \"OwnerID\", \"T2RS_ID\", \"RealSize\", \"ShoeSize\")
-			SELECT shoes.ShoeID, shoes.OwnerID, T2RS.T2RS_ID, shoes.RealSize, customers.ShoeSize FROM shoes, typetorealsizes AS T2RS, customers
-			WHERE T2RS.modified = TRUE AND T2RS.T2RS_ID = shoes.T2RS_ID AND shoes.OwnerID = customers.CustID")
+			SELECT shoes.\"ShoeID\", shoes.\"OwnerID\", T2RS.\"T2RS_ID\", shoes.\"RealSize\", customers.\"ShoeSize\" FROM shoes, typetorealsizes AS T2RS, customers
+			WHERE T2RS.modified = TRUE AND T2RS.\"T2RS_ID\" = shoes.\"T2RS_ID\" AND shoes.\"OwnerID\" = customers.\"CustID\"")
 		affShoes = AffectedShoe.all
 		
 		affShoes.pluck(:T2RS_ID).uniq.each do |t2rsid|	# update each T2RS entry with correct conversion factors

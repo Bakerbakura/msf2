@@ -13,12 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20150226134530) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "affected_shoes", force: true do |t|
     t.integer "ShoeID",   limit: 8
     t.integer "OwnerID",  limit: 8
     t.integer "T2RS_ID",  limit: 8
-    t.float   "RealSize", limit: 24
+    t.float   "RealSize"
+    t.float   "ShoeSize"
   end
+
+  add_index "affected_shoes", ["T2RS_ID"], name: "index_affected_shoes_on_T2RS_ID", using: :btree
 
   create_table "brands", id: false, force: true do |t|
     t.string "Brand", limit: 30, null: false
@@ -30,8 +36,8 @@ ActiveRecord::Schema.define(version: 20150226134530) do
     t.string   "Email",             limit: 30, null: false
     t.string   "Gender",            limit: 1,  null: false
     t.string   "password_digest",   limit: 60, null: false
-    t.float    "ShoeSize",          limit: 24
-    t.float    "ShoeSizeError",     limit: 24
+    t.float    "ShoeSize"
+    t.float    "ShoeSizeError"
     t.string   "preferredSizeType", limit: 20, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -63,20 +69,20 @@ ActiveRecord::Schema.define(version: 20150226134530) do
     t.string   "Material",    limit: 20, null: false
     t.string   "SizeType",    limit: 20, null: false
     t.string   "LengthFit",   limit: 20, null: false
-    t.float    "Size",        limit: 24, null: false
-    t.float    "preRealSize", limit: 24
-    t.float    "RealSize",    limit: 24
+    t.float    "Size",                   null: false
+    t.float    "preRealSize"
+    t.float    "RealSize"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sizetypes", id: false, force: true do |t|
     t.string "SizeType",         limit: 20, null: false
-    t.float  "ToMondo1",         limit: 24, null: false
-    t.float  "ToMondo0",         limit: 24, null: false
-    t.float  "SizeTypeInterval", limit: 24, null: false
-    t.float  "MinSize",          limit: 24, null: false
-    t.float  "MaxSize",          limit: 24, null: false
+    t.float  "ToMondo1",                    null: false
+    t.float  "ToMondo0",                    null: false
+    t.float  "SizeTypeInterval",            null: false
+    t.float  "MinSize",                     null: false
+    t.float  "MaxSize",                     null: false
   end
 
   add_index "sizetypes", ["SizeType"], name: "index_sizetypes_on_SizeType", unique: true, using: :btree
@@ -89,17 +95,17 @@ ActiveRecord::Schema.define(version: 20150226134530) do
 
   create_table "t2rs_entry_infos", force: true do |t|
     t.integer "OwnerID",  limit: 8
-    t.float   "PreSize",  limit: 24
-    t.float   "RealSize", limit: 24
-    t.float   "ShoeSize", limit: 24
+    t.float   "PreSize"
+    t.float   "RealSize"
+    t.float   "ShoeSize"
   end
 
   create_table "typetorealsizes", primary_key: "T2RS_ID", force: true do |t|
     t.string   "BrandStyleMaterial", limit: 70,                 null: false
-    t.float    "ToMondo1",           limit: 24, default: 1.0,   null: false
-    t.float    "ToMondo0",           limit: 24, default: 0.0,   null: false
+    t.float    "ToMondo1",                      default: 1.0,   null: false
+    t.float    "ToMondo0",                      default: 0.0,   null: false
     t.boolean  "modified",                      default: false, null: false
-    t.float    "Uncertainty",        limit: 24, default: 0.0
+    t.float    "Uncertainty",                   default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
