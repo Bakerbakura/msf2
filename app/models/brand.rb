@@ -5,6 +5,6 @@ class Brand < ActiveRecord::Base
 		require 'csv'
 		Brand.delete_all
 		insertString = CSV.read("db/preseeds/Brands.csv").map {|brand| "('#{brand[0]}')"}.join(', ')
-		Brand.connection.execute("INSERT INTO brands (Brand) VALUES #{insertString}")
+		Brand.connection.execute("INSERT INTO brands (\"Brand\") VALUES #{insertString}")
 	end
 end

@@ -142,7 +142,7 @@
         <span class="ruby-ivar">@parms</span> = <span class="ruby-identifier">newshoe_params</span>
         <span class="ruby-identifier">newShoe</span> = <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@parms</span>)
         <span class="ruby-identifier">newPreSize</span> = <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">sizeToPreSize</span>(<span class="ruby-ivar">@parms</span>[<span class="ruby-value">:Size</span>], <span class="ruby-ivar">@parms</span>[<span class="ruby-value">:SizeType</span>], <span class="ruby-ivar">@parms</span>[<span class="ruby-value">:LengthFit</span>])
-        <span class="ruby-keyword">if</span> (<span class="ruby-keyword">not</span> <span class="ruby-ivar">@customer</span>.<span class="ruby-constant">ShoeSize</span>) <span class="ruby-keyword">or</span> (<span class="ruby-identifier">newPreSize</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@customer</span>.<span class="ruby-constant">ShoeSize</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">30.0</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@customer</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> (<span class="ruby-keyword">not</span> <span class="ruby-ivar">@customer</span>.<span class="ruby-constant">ShoeSize</span>) <span class="ruby-keyword">or</span> (<span class="ruby-identifier">newPreSize</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@customer</span>.<span class="ruby-constant">ShoeSize</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">30.0</span>
                 <span class="ruby-identifier">newShoe</span>.<span class="ruby-identifier">save</span>
                 <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">updateShoeStats</span>(<span class="ruby-ivar">@customer</span>.<span class="ruby-constant">CustID</span>)
         <span class="ruby-keyword">else</span>
@@ -187,9 +187,9 @@
         <span class="ruby-comment"># puts @lessparms</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@parms</span>[<span class="ruby-string">&quot;Email&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@parms</span>[<span class="ruby-string">&quot;Email_confirmation&quot;</span>]
                 <span class="ruby-ivar">@customer</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@lessparms</span>)
-                <span class="ruby-ivar">@customer</span>.<span class="ruby-identifier">save</span>
+                <span class="ruby-ivar">@customer</span>.<span class="ruby-identifier">save!</span>
                 <span class="ruby-identifier">session</span>[<span class="ruby-value">:CustID</span>] = <span class="ruby-ivar">@customer</span>.<span class="ruby-constant">CustID</span>
-                <span class="ruby-identifier">session</span>[<span class="ruby-value">:preferredSizeType</span>] = <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">find_by_SizeType</span>(<span class="ruby-ivar">@customer</span>.<span class="ruby-identifier">preferredSizeType</span>)
+                <span class="ruby-identifier">session</span>[<span class="ruby-value">:preferredSizeType</span>] = <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">find_by_SizeType!</span>(<span class="ruby-ivar">@customer</span>.<span class="ruby-identifier">preferredSizeType</span>)
                 <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_path</span>
         <span class="ruby-keyword">else</span>
                 <span class="ruby-identifier">flash</span>[<span class="ruby-value">:warning</span>] = <span class="ruby-string">&quot;Your email address was not entered correctly.&quot;</span>

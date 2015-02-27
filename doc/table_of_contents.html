@@ -31,6 +31,9 @@
     <a href="Gemfile_lock.html">Gemfile.lock</a>
   </li>
     <li class="file">
+    <a href="Procfile.html">Procfile</a>
+  </li>
+    <li class="file">
     <a href="README_rdoc.html">README</a>
 
     <ul>
@@ -79,13 +82,22 @@
     <a href="db/preseeds/Brands_csv.html">Brands.csv</a>
   </li>
     <li class="file">
+    <a href="db/preseeds/Materials_csv.html">Materials.csv</a>
+  </li>
+    <li class="file">
     <a href="db/preseeds/SizeTypes_csv.html">SizeTypes.csv</a>
   </li>
     <li class="file">
     <a href="db/preseeds/Styles_csv.html">Styles.csv</a>
   </li>
     <li class="file">
+    <a href="log/1+1_log.html">1+1.log</a>
+  </li>
+    <li class="file">
     <a href="log/development_log.html">development.log</a>
+  </li>
+    <li class="file">
+    <a href="log/test_log.html">test.log</a>
   </li>
     <li class="file">
     <a href="public/404_html.html">404.html</a>
@@ -102,9 +114,6 @@
     <li class="file">
     <a href="public/robots_txt.html">robots</a>
   </li>
-    <li class="file">
-    <a href="tmp/pids/server_pid.html">server.pid</a>
-  </li>
   
 </ul>
 
@@ -120,6 +129,12 @@
     <a href="ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
   </li>
   <li class="class">
+    <a href="AffectedShoe.html">AffectedShoe</a>
+  </li>
+  <li class="class">
+    <a href="AffectedShoeTest.html">AffectedShoeTest</a>
+  </li>
+  <li class="class">
     <a href="ApplicationController.html">ApplicationController</a>
   </li>
   <li class="module">
@@ -130,6 +145,9 @@
   </li>
   <li class="class">
     <a href="BrandTest.html">BrandTest</a>
+  </li>
+  <li class="class">
+    <a href="CreateAffectedShoes.html">CreateAffectedShoes</a>
   </li>
   <li class="class">
     <a href="CreateBrands.html">CreateBrands</a>
@@ -154,6 +172,9 @@
   </li>
   <li class="class">
     <a href="CreateStyles.html">CreateStyles</a>
+  </li>
+  <li class="class">
+    <a href="CreateT2rsEntryInfos.html">CreateT2rsEntryInfos</a>
   </li>
   <li class="class">
     <a href="CreateTypetorealsizes.html">CreateTypetorealsizes</a>
@@ -237,6 +258,12 @@
     <a href="StyleTest.html">StyleTest</a>
   </li>
   <li class="class">
+    <a href="T2rsEntryInfo.html">T2rsEntryInfo</a>
+  </li>
+  <li class="class">
+    <a href="T2rsEntryInfoTest.html">T2rsEntryInfoTest</a>
+  </li>
+  <li class="class">
     <a href="Typetorealsize.html">Typetorealsize</a>
   </li>
   <li class="class">
@@ -260,9 +287,29 @@
 <ul>
 
   <li class="method">
+    <a href="Shoe.html#method-c-FromMondo">::FromMondo</a>
+    &mdash;
+    <span class="container">Shoe</span>
+
+  <li class="method">
+    <a href="Shoe.html#method-c-ToMondo">::ToMondo</a>
+    &mdash;
+    <span class="container">Shoe</span>
+
+  <li class="method">
     <a href="Customer.html#method-c-emptyShoeSizeSweep">::emptyShoeSizeSweep</a>
     &mdash;
     <span class="container">Customer</span>
+
+  <li class="method">
+    <a href="Typetorealsize.html#method-c-initialise">::initialise</a>
+    &mdash;
+    <span class="container">Typetorealsize</span>
+
+  <li class="method">
+    <a href="Shoe.html#method-c-preToRealSize">::preToRealSize</a>
+    &mdash;
+    <span class="container">Shoe</span>
 
   <li class="method">
     <a href="Customer.html#method-c-predictSizeToBuy">::predictSizeToBuy</a>
@@ -270,9 +317,34 @@
     <span class="container">Customer</span>
 
   <li class="method">
+    <a href="Material.html#method-c-seedfromCSV">::seedfromCSV</a>
+    &mdash;
+    <span class="container">Material</span>
+
+  <li class="method">
+    <a href="Sizetype.html#method-c-seedfromCSV">::seedfromCSV</a>
+    &mdash;
+    <span class="container">Sizetype</span>
+
+  <li class="method">
+    <a href="Style.html#method-c-seedfromCSV">::seedfromCSV</a>
+    &mdash;
+    <span class="container">Style</span>
+
+  <li class="method">
+    <a href="Brand.html#method-c-seedfromCSV">::seedfromCSV</a>
+    &mdash;
+    <span class="container">Brand</span>
+
+  <li class="method">
     <a href="Shoe.html#method-c-sizeToPreSize">::sizeToPreSize</a>
     &mdash;
     <span class="container">Shoe</span>
+
+  <li class="method">
+    <a href="Typetorealsize.html#method-c-update">::update</a>
+    &mdash;
+    <span class="container">Typetorealsize</span>
 
   <li class="method">
     <a href="Customer.html#method-c-updateShoeStats">::updateShoeStats</a>
@@ -280,19 +352,14 @@
     <span class="container">Customer</span>
 
   <li class="method">
-    <a href="Typetorealsize.html#method-c-update_T2RS_entry">::update_T2RS_entry</a>
+    <a href="Typetorealsize.html#method-c-update_entry">::update_entry</a>
     &mdash;
     <span class="container">Typetorealsize</span>
 
   <li class="method">
-    <a href="Shoe.html#method-i-FromMondo">#FromMondo</a>
+    <a href="ApplicationHelper.html#method-i-T2RS_initialise">#T2RS_initialise</a>
     &mdash;
-    <span class="container">Shoe</span>
-
-  <li class="method">
-    <a href="Shoe.html#method-i-ToMondo">#ToMondo</a>
-    &mdash;
-    <span class="container">Shoe</span>
+    <span class="container">ApplicationHelper</span>
 
   <li class="method">
     <a href="CustomersController.html#method-i-addshoe">#addshoe</a>
@@ -310,14 +377,29 @@
     <span class="container">ApplicationHelper</span>
 
   <li class="method">
-    <a href="CreateTypetorealsizes.html#method-i-change">#change</a>
+    <a href="CreateMaterials.html#method-i-change">#change</a>
     &mdash;
-    <span class="container">CreateTypetorealsizes</span>
+    <span class="container">CreateMaterials</span>
 
   <li class="method">
     <a href="CreateShoes.html#method-i-change">#change</a>
     &mdash;
     <span class="container">CreateShoes</span>
+
+  <li class="method">
+    <a href="CreateLengthfits.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateLengthfits</span>
+
+  <li class="method">
+    <a href="CreateAffectedShoes.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateAffectedShoes</span>
+
+  <li class="method">
+    <a href="CreateT2rsEntryInfos.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateT2rsEntryInfos</span>
 
   <li class="method">
     <a href="CreateStyles.html#method-i-change">#change</a>
@@ -330,9 +412,9 @@
     <span class="container">CreateBrands</span>
 
   <li class="method">
-    <a href="CreateMaterials.html#method-i-change">#change</a>
+    <a href="CreateTypetorealsizes.html#method-i-change">#change</a>
     &mdash;
-    <span class="container">CreateMaterials</span>
+    <span class="container">CreateTypetorealsizes</span>
 
   <li class="method">
     <a href="CreateSizetypes.html#method-i-change">#change</a>
@@ -340,19 +422,14 @@
     <span class="container">CreateSizetypes</span>
 
   <li class="method">
-    <a href="CreateGenders.html#method-i-change">#change</a>
-    &mdash;
-    <span class="container">CreateGenders</span>
-
-  <li class="method">
     <a href="CreateCustomers.html#method-i-change">#change</a>
     &mdash;
     <span class="container">CreateCustomers</span>
 
   <li class="method">
-    <a href="CreateLengthfits.html#method-i-change">#change</a>
+    <a href="CreateGenders.html#method-i-change">#change</a>
     &mdash;
-    <span class="container">CreateLengthfits</span>
+    <span class="container">CreateGenders</span>
 
   <li class="method">
     <a href="CustomersController.html#method-i-create">#create</a>
@@ -375,24 +452,19 @@
     <span class="container">CustomersController</span>
 
   <li class="method">
-    <a href="WelcomeController.html#method-i-index">#index</a>
-    &mdash;
-    <span class="container">WelcomeController</span>
-
-  <li class="method">
     <a href="CustomersController.html#method-i-index">#index</a>
     &mdash;
     <span class="container">CustomersController</span>
 
   <li class="method">
+    <a href="WelcomeController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">WelcomeController</span>
+
+  <li class="method">
     <a href="CustomersController.html#method-i-new">#new</a>
     &mdash;
     <span class="container">CustomersController</span>
-
-  <li class="method">
-    <a href="Shoe.html#method-i-preToRealSize">#preToRealSize</a>
-    &mdash;
-    <span class="container">Shoe</span>
 
   <li class="method">
     <a href="CustomersController.html#method-i-predict">#predict</a>

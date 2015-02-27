@@ -63,14 +63,29 @@
 </div>
 
     
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
     
+  
+    <li><span class="extend">DescriptiveStatistics</span>
+  
+  
+  </ul>
+</div>
+
     <!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-update_T2RS_entry">::update_T2RS_entry</a>
+    <li ><a href="#method-c-initialise">::initialise</a>
+    
+    <li ><a href="#method-c-update">::update</a>
+    
+    <li ><a href="#method-c-update_entry">::update_entry</a>
     
   </ul>
 </div>
@@ -96,93 +111,26 @@
     
 
     
-
-    
-    <section class="attribute-method-details" class="method-section">
+    <section class="constants-list">
       <header>
-        <h3>Attributes</h3>
+        <h3>Constants</h3>
       </header>
-
+      <dl>
       
-      <div id="attribute-i-BrandStyleMaterial" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">BrandStyleMaterial</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
+        <dt id="RealSize">RealSize
         
+        <dd>
         
-        
-        </div>
-      </div>
       
-      <div id="attribute-i-T2RS_ID" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">T2RS_ID</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
+        <dt id="Uncertainty">Uncertainty
         
+        <dd>
         
-        
-        </div>
-      </div>
       
-      <div id="attribute-i-ToMondo0" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">ToMondo0</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-ToMondo1" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">ToMondo1</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-Uncertainty" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Uncertainty</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-modified" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">modified</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
+      </dl>
     </section>
+    
+
     
 
     
@@ -192,11 +140,11 @@
        </header>
 
     
-      <div id="method-c-update_T2RS_entry" class="method-detail ">
+      <div id="method-c-initialise" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">update_T2RS_entry</span><span
-            class="method-args">(_t2rsid)</span>
+          <span class="method-name">initialise</span><span
+            class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -210,13 +158,140 @@
           
 
           
-          <div class="method-source-code" id="update_T2RS_entry-source">
-            <pre><span class="ruby-comment"># File app/models/typetorealsize.rb, line 5</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">update_T2RS_entry</span>(<span class="ruby-identifier">_t2rsid</span>)
+          <div class="method-source-code" id="initialise-source">
+            <pre><span class="ruby-comment"># File app/models/typetorealsize.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">initialise</span>
+        <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">delete_all</span>
+        <span class="ruby-identifier">brands</span> = <span class="ruby-constant">Brand</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:Brand</span>)
+        <span class="ruby-identifier">styles</span> = <span class="ruby-constant">Style</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:Style</span>)
+        <span class="ruby-identifier">materials</span> = <span class="ruby-constant">Material</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:Material</span>)
+
+        <span class="ruby-identifier">inserts</span> = []
+        <span class="ruby-identifier">brands</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">brand</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">styles</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">style</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">materials</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">material</span><span class="ruby-operator">|</span>
+                                <span class="ruby-identifier">inserts</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;(\&#39;#{brand}|#{style}|#{material}\&#39;)&quot;</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;INSERT INTO typetorealsizes (\&quot;BrandStyleMaterial\&quot;) VALUES #{inserts.join(&#39;, &#39;)}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/models/typetorealsize.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">update</span>
+        <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">emptyShoeSizeSweep</span>()
+
+        <span class="ruby-constant">AffectedShoe</span>.<span class="ruby-identifier">delete_all</span>
+        <span class="ruby-constant">AffectedShoe</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-string">&quot;INSERT INTO affected_shoes(\&quot;ShoeID\&quot;, \&quot;OwnerID\&quot;, \&quot;T2RS_ID\&quot;, \&quot;RealSize\&quot;, \&quot;ShoeSize\&quot;)
+                SELECT shoes.ShoeID, shoes.OwnerID, T2RS.T2RS_ID, shoes.RealSize, customers.ShoeSize FROM shoes, typetorealsizes AS T2RS, customers
+                WHERE T2RS.modified = TRUE AND T2RS.T2RS_ID = shoes.T2RS_ID AND shoes.OwnerID = customers.CustID&quot;</span>)
+        <span class="ruby-identifier">affShoes</span> = <span class="ruby-constant">AffectedShoe</span>.<span class="ruby-identifier">all</span>
+        
+        <span class="ruby-identifier">affShoes</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:T2RS_ID</span>).<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t2rsid</span><span class="ruby-operator">|</span>        <span class="ruby-comment"># update each T2RS entry with correct conversion factors</span>
+                <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">update_entry</span>(<span class="ruby-identifier">t2rsid</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">affShoes</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:T2RS_ID</span>, <span class="ruby-value">:ShoeID</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>     <span class="ruby-comment"># update shoes&#39; realSizes</span>
+                <span class="ruby-identifier">shoe</span> = <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">find_by_ShoeID</span>(<span class="ruby-identifier">entry</span>[<span class="ruby-value">1</span>])
+                <span class="ruby-identifier">shoe</span>.<span class="ruby-constant">RealSize</span> = <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">preToRealSize</span>(<span class="ruby-identifier">entry</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">shoe</span>.<span class="ruby-identifier">preRealSize</span>)
+                <span class="ruby-identifier">shoe</span>.<span class="ruby-identifier">save!</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">affShoes</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:OwnerID</span>).<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ownerid</span><span class="ruby-operator">|</span>       <span class="ruby-comment"># update details of owners with affected shoes</span>
+                <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">updateShoeStats</span>(<span class="ruby-identifier">ownerid</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">affShoes</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:T2RS_ID</span>).<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t2rsid</span><span class="ruby-operator">|</span>        <span class="ruby-comment"># update T2RS Uncertainty coefficients</span>
+                <span class="ruby-identifier">t2rs</span> = <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">find_by_T2RS_ID</span>(<span class="ruby-identifier">t2rsid</span>)
+                <span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">Uncertainty</span> = <span class="ruby-identifier">affShoes</span>.<span class="ruby-identifier">where</span>(<span class="ruby-constant">T2RS_ID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t2rsid</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-string">&quot;RealSize-ShoeSize&quot;</span>).<span class="ruby-identifier">extend</span>(<span class="ruby-constant">DescriptiveStatistics</span>).<span class="ruby-identifier">standard_deviation</span>
+                <span class="ruby-identifier">t2rs</span>.<span class="ruby-identifier">save!</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-constant">AffectedShoe</span>.<span class="ruby-identifier">delete_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-update_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_entry</span><span
+            class="method-args">(_t2rsid)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>attr_accessor :T2RS_ID, :BrandStyleMaterial, :ToMondo1, :ToMondo0,
+:modified, :Uncertainty</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_entry-source">
+            <pre><span class="ruby-comment"># File app/models/typetorealsize.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">update_entry</span>(<span class="ruby-identifier">_t2rsid</span>)
         <span class="ruby-identifier">row_limit</span> = <span class="ruby-value">30</span>
+        <span class="ruby-identifier">c0</span>, <span class="ruby-identifier">c1</span> = <span class="ruby-value">0.0</span>, <span class="ruby-value">1.0</span>
         <span class="ruby-identifier">t2rs_entry</span> = <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">find_by_T2RS_ID</span>(<span class="ruby-identifier">_t2rsid</span>)
         <span class="ruby-identifier">brand</span>, <span class="ruby-identifier">style</span>, <span class="ruby-identifier">material</span> = <span class="ruby-identifier">t2rs_entry</span>.<span class="ruby-constant">BrandStyleMaterial</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;|&#39;</span>)
-        <span class="ruby-identifier">t2rs_entry_info</span> = <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:customers</span>)
+        
+        <span class="ruby-constant">T2rsEntryInfo</span>.<span class="ruby-identifier">delete_all</span>
+        <span class="ruby-constant">T2rsEntryInfo</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;INSERT INTO t2rs_entry_infos(\&quot;OwnerID\&quot;, \&quot;PreSize\&quot;, \&quot;RealSize\&quot;, \&quot;ShoeSize\&quot;)
+                SELECT shoes.OwnerID, shoes.preRealSize, shoes.RealSize, customers.ShoeSize FROM customers, shoes
+                WHERE shoes.Brand = &#39;#{brand}&#39; AND shoes.Style = &#39;#{style}&#39; AND shoes.material = &#39;#{material}&#39; AND shoes.OwnerID = customers.CustID&quot;</span>)
+        <span class="ruby-identifier">t2rs_entry_info</span> = <span class="ruby-constant">T2rsEntryInfo</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">row_limit</span>)
+        <span class="ruby-identifier">ndiff</span> = <span class="ruby-identifier">t2rs_entry_info</span>.<span class="ruby-identifier">distinct</span>.<span class="ruby-identifier">count</span>(<span class="ruby-value">:PreSize</span>)
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">ndiff</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">2</span>
+                <span class="ruby-identifier">x0</span>, <span class="ruby-identifier">x1</span>, <span class="ruby-identifier">x2</span> = <span class="ruby-identifier">t2rs_entry_info</span>.<span class="ruby-identifier">count</span>, <span class="ruby-identifier">t2rs_entry_info</span>.<span class="ruby-identifier">sum</span>(<span class="ruby-value">:PreSize</span>), <span class="ruby-identifier">t2rs_entry_info</span>.<span class="ruby-identifier">sum</span>(<span class="ruby-string">&quot;PreSize*PreSize&quot;</span>)
+                <span class="ruby-identifier">y0</span>, <span class="ruby-identifier">y1</span> = <span class="ruby-identifier">t2rs_entry_info</span>.<span class="ruby-identifier">sum</span>(<span class="ruby-value">:ShoeSize</span>), <span class="ruby-identifier">t2rs_entry_info</span>.<span class="ruby-identifier">sum</span>(<span class="ruby-string">&quot;PreSize*ShoeSize&quot;</span>)
+                <span class="ruby-identifier">err</span> = <span class="ruby-identifier">t2rs_entry_info</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-string">&quot;RealSize-ShoeSize&quot;</span>).<span class="ruby-identifier">extend</span>(<span class="ruby-constant">DescriptiveStatistics</span>).<span class="ruby-identifier">standard_deviation</span>
+
+                <span class="ruby-identifier">c0</span> = <span class="ruby-value">0.25</span><span class="ruby-operator">*</span>(<span class="ruby-identifier">c0</span> <span class="ruby-operator">+</span> <span class="ruby-value">3.0</span><span class="ruby-operator">*</span>(<span class="ruby-operator">+</span><span class="ruby-identifier">x2</span><span class="ruby-operator">*</span><span class="ruby-identifier">y0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x1</span><span class="ruby-operator">*</span><span class="ruby-identifier">y1</span>))
+                <span class="ruby-identifier">c1</span> = <span class="ruby-value">0.25</span><span class="ruby-operator">*</span>(<span class="ruby-identifier">c1</span> <span class="ruby-operator">+</span> <span class="ruby-value">3.0</span><span class="ruby-operator">*</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">x1</span><span class="ruby-operator">*</span><span class="ruby-identifier">y0</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x0</span><span class="ruby-operator">*</span><span class="ruby-identifier">y1</span>))
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">t2rs_entry</span>.<span class="ruby-constant">ToMondo1</span>, <span class="ruby-identifier">t2rs_entry</span>.<span class="ruby-constant">ToMondo0</span>, <span class="ruby-identifier">t2rs_entry</span>.<span class="ruby-constant">Uncertainty</span> = <span class="ruby-identifier">c1</span>, <span class="ruby-identifier">c0</span>, <span class="ruby-identifier">err</span>
+        <span class="ruby-identifier">t2rs_entry</span>.<span class="ruby-identifier">save!</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

@@ -130,7 +130,7 @@
             <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">authenticate_customer</span>
       <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:CustID</span>]
-              <span class="ruby-ivar">@customer</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">find_by_CustID</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:CustID</span>])
+              <span class="ruby-ivar">@customer</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">find_by_CustID!</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:CustID</span>])
               <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
       <span class="ruby-keyword">else</span>
               <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">signin_path</span>

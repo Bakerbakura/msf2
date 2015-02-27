@@ -70,13 +70,13 @@
 
   <ul class="link-list" role="directory">
     
+    <li ><a href="#method-c-FromMondo">::FromMondo</a>
+    
+    <li ><a href="#method-c-ToMondo">::ToMondo</a>
+    
+    <li ><a href="#method-c-preToRealSize">::preToRealSize</a>
+    
     <li ><a href="#method-c-sizeToPreSize">::sizeToPreSize</a>
-    
-    <li ><a href="#method-i-FromMondo">#FromMondo</a>
-    
-    <li ><a href="#method-i-ToMondo">#ToMondo</a>
-    
-    <li ><a href="#method-i-preToRealSize">#preToRealSize</a>
     
   </ul>
 </div>
@@ -108,12 +108,12 @@
       </header>
       <dl>
       
-        <dt id="PreRealSize">PreRealSize
+        <dt id="RealSize">RealSize
         
         <dd>
         
       
-        <dt id="RealSize">RealSize
+        <dt id="Size">Size
         
         <dd>
         
@@ -128,163 +128,114 @@
     
 
     
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-Brand" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Brand</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-LengthFit" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">LengthFit</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-Material" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Material</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-OwnerID" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">OwnerID</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-RealSize" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">RealSize</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-ShoeID" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">ShoeID</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-Size" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Size</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-SizeType" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">SizeType</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-Style" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Style</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-T2RS_ID" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">T2RS_ID</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-preRealSize" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">preRealSize</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
-    
 
     
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
+
+    
+      <div id="method-c-FromMondo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">FromMondo</span><span
+            class="method-args">(_mondoSize, _sizeType)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="FromMondo-source">
+            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Shoe</span>.<span class="ruby-constant">FromMondo</span>(<span class="ruby-identifier">_mondoSize</span>, <span class="ruby-identifier">_sizeType</span>)
+      <span class="ruby-identifier">st</span> = <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">find_by_SizeType!</span>(<span class="ruby-identifier">_sizeType</span>)
+      <span class="ruby-keyword">return</span> (<span class="ruby-identifier">_mondoSize</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo0</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-ToMondo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ToMondo</span><span
+            class="method-args">(_size, _sizeType)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ToMondo-source">
+            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Shoe</span>.<span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">_size</span>, <span class="ruby-identifier">_sizeType</span>)
+      <span class="ruby-identifier">st</span> = <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">find_by_SizeType!</span>(<span class="ruby-identifier">_sizeType</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">_size</span><span class="ruby-operator">*</span><span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-preToRealSize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">preToRealSize</span><span
+            class="method-args">(_t2rsid, _preSize)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="preToRealSize-source">
+            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">preToRealSize</span>(<span class="ruby-identifier">_t2rsid</span>, <span class="ruby-identifier">_preSize</span>)
+      <span class="ruby-identifier">t2rs</span> = <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">find_by!</span>(<span class="ruby-constant">T2RS_ID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">_t2rsid</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">_preSize</span><span class="ruby-operator">*</span><span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">ToMondo1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">ToMondo0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
 
     
       <div id="method-c-sizeToPreSize" class="method-detail ">
@@ -306,128 +257,19 @@
 
           
           <div class="method-source-code" id="sizeToPreSize-source">
-            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 17</span>
+            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">sizeToPreSize</span>(<span class="ruby-identifier">_size</span>, <span class="ruby-identifier">_sizeType</span>, <span class="ruby-identifier">_lengthFit</span>)
-      <span class="ruby-identifier">interval</span> = <span class="ruby-constant">Sizetypes</span>.<span class="ruby-identifier">find_by_SizeType!</span>(<span class="ruby-identifier">_sizeType</span>).<span class="ruby-constant">SizeTypeInterval</span>
+      <span class="ruby-identifier">interval</span> = <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">find_by_SizeType!</span>(<span class="ruby-identifier">_sizeType</span>).<span class="ruby-constant">SizeTypeInterval</span>
+  <span class="ruby-identifier">__size</span> = <span class="ruby-identifier">_size</span>.<span class="ruby-identifier">to_f</span>
 
       <span class="ruby-keyword">return</span> <span class="ruby-keyword">case</span> <span class="ruby-identifier">_lengthFit</span>
-              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Too Short&quot;</span>                    <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">_size</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.4</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,       <span class="ruby-identifier">_sizeType</span>)
-              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Slightly Short&quot;</span>       <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">_size</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.2</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,    <span class="ruby-identifier">_sizeType</span>)
-              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Perfect&quot;</span>                              <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">_size</span>,                                                                       <span class="ruby-identifier">_sizeType</span>)
-              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Slightly Long&quot;</span>        <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">_size</span> <span class="ruby-operator">-</span> <span class="ruby-value">0.2</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,     <span class="ruby-identifier">_sizeType</span>)
-              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Too Long&quot;</span>                             <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">_size</span> <span class="ruby-operator">-</span> <span class="ruby-value">0.4</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,       <span class="ruby-identifier">_sizeType</span>)
+              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Too Short&quot;</span>                    <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">__size</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.4</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,      <span class="ruby-identifier">_sizeType</span>)
+              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Slightly Short&quot;</span>       <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">__size</span> <span class="ruby-operator">+</span> <span class="ruby-value">0.2</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,   <span class="ruby-identifier">_sizeType</span>)
+              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Perfect&quot;</span>                              <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">__size</span>,                                                              <span class="ruby-identifier">_sizeType</span>)
+              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Slightly Long&quot;</span>        <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">__size</span> <span class="ruby-operator">-</span> <span class="ruby-value">0.2</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,    <span class="ruby-identifier">_sizeType</span>)
+              <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Too Long&quot;</span>                             <span class="ruby-keyword">then</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">__size</span> <span class="ruby-operator">-</span> <span class="ruby-value">0.4</span><span class="ruby-operator">*</span><span class="ruby-identifier">interval</span>,      <span class="ruby-identifier">_sizeType</span>)
               <span class="ruby-keyword">else</span> <span class="ruby-string">&quot;INVALID _LENGTHFIT!&quot;</span>
       <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-FromMondo" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">FromMondo</span><span
-            class="method-args">(_mondoSize, _sizeType)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="FromMondo-source">
-            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 40</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">FromMondo</span>(<span class="ruby-identifier">_mondoSize</span>, <span class="ruby-identifier">_sizeType</span>)
-      <span class="ruby-identifier">st</span> = <span class="ruby-constant">Sizetypes</span>.<span class="ruby-identifier">find_by_Sizetype!</span>(<span class="ruby-identifier">_sizeType</span>)
-      <span class="ruby-keyword">return</span> (<span class="ruby-identifier">_mondoSize</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo0</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo1</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-ToMondo" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">ToMondo</span><span
-            class="method-args">(_size, _sizeType)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="ToMondo-source">
-            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 35</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">ToMondo</span>(<span class="ruby-identifier">_size</span>, <span class="ruby-identifier">_sizeType</span>)
-      <span class="ruby-identifier">st</span> = <span class="ruby-constant">Sizetypes</span>.<span class="ruby-identifier">find_by_SizeType!</span>(<span class="ruby-identifier">_sizeType</span>)
-      <span class="ruby-keyword">return</span> <span class="ruby-identifier">_size</span><span class="ruby-operator">*</span><span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">st</span>.<span class="ruby-constant">ToMondo0</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-preToRealSize" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">preToRealSize</span><span
-            class="method-args">(_t2rsid, _preSize)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="preToRealSize-source">
-            <pre><span class="ruby-comment"># File app/models/shoe.rb, line 30</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">preToRealSize</span>(<span class="ruby-identifier">_t2rsid</span>, <span class="ruby-identifier">_preSize</span>)
-      <span class="ruby-identifier">t2rs</span> = <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">find_by!</span>(<span class="ruby-constant">T2RS_ID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">_t2rsid</span>)
-      <span class="ruby-keyword">return</span> <span class="ruby-identifier">_preSize</span><span class="ruby-operator">*</span><span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">ToMondo1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">ToMondo0</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

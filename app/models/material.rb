@@ -5,6 +5,6 @@ class Material < ActiveRecord::Base
 		require 'csv'
 		Material.delete_all
 		insertString = CSV.read("db/preseeds/Materials.csv").map {|material| "('#{material[0]}')"}.join(', ')
-		Material.connection.execute("INSERT INTO materials (Material) VALUES #{insertString}")
+		Material.connection.execute("INSERT INTO materials (\"Material\") VALUES #{insertString}")
 	end
 end

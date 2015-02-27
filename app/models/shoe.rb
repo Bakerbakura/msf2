@@ -6,8 +6,7 @@ class Shoe < ActiveRecord::Base
   	t2rs = Typetorealsize.find_by_BrandStyleMaterial!("#{self.Brand}|#{self.Style}|#{self.Material}")
   	t2rsid = t2rs.T2RS_ID
   	
-    t2rs.modified = true
-    t2rs.save!
+    t2rs.update_column(:modified, true)
     self.Size = (self.Size).to_f
   	preRealSize = Shoe.sizeToPreSize(self.Size, self.SizeType, self.LengthFit)
   	self.preRealSize = preRealSize
@@ -33,7 +32,7 @@ class Shoe < ActiveRecord::Base
   end
 
   def Shoe.preToRealSize(_t2rsid, _preSize)
-  	t2rs = Typetorealsize.find_by!(T2RS_ID: _t2rsid)
+  	t2rs = Typetorealsize.find_by_T2RS_ID!(_t2rsid)
   	return _preSize*t2rs.ToMondo1 + t2rs.ToMondo0
   end
 

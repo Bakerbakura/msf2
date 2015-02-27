@@ -5,6 +5,6 @@ class Style < ActiveRecord::Base
 		require 'csv'
 		Style.delete_all
 		insertString = CSV.read("db/preseeds/Styles.csv").map {|style| "('#{style[0]}')"}.join(', ')
-		Style.connection.execute("INSERT INTO styles (Style) VALUES #{insertString}")
+		Style.connection.execute("INSERT INTO styles (\"Style\") VALUES #{insertString}")
 	end
 end

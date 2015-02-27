@@ -137,131 +137,6 @@
     
 
     
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
-
-      
-      <div id="attribute-i-CustID" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">CustID</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-Email" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Email</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-Email_confirmation" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Email_confirmation</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-Gender" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">Gender</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-ShoeSize" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">ShoeSize</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-ShoeSizeError" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">ShoeSizeError</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-password" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">password</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-password_confirmation" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">password_confirmation</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-preferredSizeType" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">preferredSizeType</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section>
-    
 
     
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
@@ -291,7 +166,7 @@
           <div class="method-source-code" id="emptyShoeSizeSweep-source">
             <pre><span class="ruby-comment"># File app/models/customer.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">emptyShoeSizeSweep</span>()
-  <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">where</span>(<span class="ruby-constant">ShoeSize</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:CustID</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">custid</span><span class="ruby-operator">|</span>
+  <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">where</span>(<span class="ruby-constant">ShoeSize</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:CustID</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">custid</span><span class="ruby-operator">|</span>
     <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">updateShoeStats</span>(<span class="ruby-identifier">custid</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -328,10 +203,10 @@
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">predictSizeToBuy</span>(<span class="ruby-identifier">_custID</span>, <span class="ruby-identifier">_brand</span>, <span class="ruby-identifier">_style</span>, <span class="ruby-identifier">_material</span>, <span class="ruby-identifier">_sizeType</span>)
       <span class="ruby-identifier">t2rs</span> = <span class="ruby-constant">Typetorealsize</span>.<span class="ruby-identifier">find_by_BrandStyleMaterial</span>(<span class="ruby-node">&quot;#{_brand}|#{_style}|#{_material}&quot;</span>)
       <span class="ruby-identifier">cust</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">find_by_CustID</span>(<span class="ruby-identifier">_custID</span>)
-      <span class="ruby-identifier">stToMondo1</span> = <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">find_by_SizeType</span>(<span class="ruby-identifier">_sizeType</span>).<span class="ruby-constant">ToMondo1</span>
+      <span class="ruby-identifier">stToMondo1</span> = <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">find_by_SizeType!</span>(<span class="ruby-identifier">_sizeType</span>).<span class="ruby-constant">ToMondo1</span>
       <span class="ruby-keyword">return</span> {
     <span class="ruby-identifier">prediction</span><span class="ruby-operator">:</span> <span class="ruby-constant">Shoe</span>.<span class="ruby-constant">FromMondo</span>((<span class="ruby-identifier">cust</span>.<span class="ruby-constant">ShoeSize</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">ToMondo0</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">ToMondo1</span>, <span class="ruby-identifier">_sizeType</span>),
-              <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">Uncertainty</span><span class="ruby-operator">*</span><span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">Uncertainty</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cust</span>.<span class="ruby-constant">ShoeSizeError</span><span class="ruby-operator">*</span><span class="ruby-identifier">cust</span>.<span class="ruby-constant">ShoeSizeError</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">stToMondo1</span>
+              <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">Uncertainty</span><span class="ruby-operator">*</span><span class="ruby-identifier">t2rs</span>.<span class="ruby-constant">Uncertainty</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cust</span>.<span class="ruby-constant">ShoeSizeError</span><span class="ruby-operator">*</span><span class="ruby-identifier">cust</span>.<span class="ruby-constant">ShoeSizeError</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">stToMondo1</span>
   }
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -361,14 +236,14 @@
 validates_presence_of :password_confirmation validates_presence_of
 :Email_confirmation validates_format_of :Email, with: <a
 href="Customer.html#EMAIL_REGEX">EMAIL_REGEX</a>, on: :create,             
-message: “Invalid <a href="Customer.html#attribute-i-Email">#Email</a>
-address format.” validates_length_of :Email, maximum: 30,                  
-message: “Email address should have length less than 30 characters”
-validates_length_of :password, minimum: 8,                               
-message: “Password should contain at least 8 characters”
-validates_inclusion_of :Gender, in: [“M”,“F”],                           
-message: “Invalid gender.” validates_inclusion_of :preferredSizeType, in:
-Sizetype.pluck(:SizeType), message: “Invalid preferredSizeType.”</p>
+message: “Invalid Email address format.” validates_length_of :Email,
+maximum: 30,                                  message: “Email address
+should have length less than 30 characters” validates_length_of :password,
+minimum: 8,                                message: “Password should
+contain at least 8 characters” validates_inclusion_of :Gender, in:
+[“M”,“F”],                            message: “Invalid gender.”
+validates_inclusion_of :preferredSizeType, in: Sizetype.pluck(:SizeType),
+message: “Invalid preferredSizeType.”</p>
           
           
 
@@ -380,7 +255,7 @@ Sizetype.pluck(:SizeType), message: “Invalid preferredSizeType.”</p>
   <span class="ruby-identifier">cust</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">find_by_CustID!</span>(<span class="ruby-identifier">_custID</span>)
       <span class="ruby-identifier">cust</span>.<span class="ruby-constant">ShoeSize</span> = <span class="ruby-identifier">realSizes</span>.<span class="ruby-identifier">mean</span>
       <span class="ruby-identifier">cust</span>.<span class="ruby-constant">ShoeSizeError</span> = <span class="ruby-identifier">realSizes</span>.<span class="ruby-identifier">standard_deviation</span>
-      <span class="ruby-identifier">cust</span>.<span class="ruby-identifier">update</span>
+      <span class="ruby-identifier">cust</span>.<span class="ruby-identifier">save!</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

@@ -64,7 +64,17 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-c-seedfromCSV">::seedfromCSV</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -90,6 +100,50 @@
     
 
     
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-seedfromCSV" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">seedfromCSV</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="seedfromCSV-source">
+            <pre><span class="ruby-comment"># File app/models/brand.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Brand</span>.<span class="ruby-identifier">seedfromCSV</span>  <span class="ruby-comment"># assumes the CSV file to be in &quot;db/preseeds/Brands.csv&quot;</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;csv&#39;</span>
+        <span class="ruby-constant">Brand</span>.<span class="ruby-identifier">delete_all</span>
+        <span class="ruby-identifier">insertString</span> = <span class="ruby-constant">CSV</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;db/preseeds/Brands.csv&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">brand</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;(&#39;#{brand[0]}&#39;)&quot;</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+        <span class="ruby-constant">Brand</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;INSERT INTO brands (Brand) VALUES #{insertString}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

@@ -5,6 +5,6 @@ class Sizetype < ActiveRecord::Base
 		require 'csv'
 		Sizetype.delete_all
 		insertString = CSV.read("db/preseeds/SizeTypes.csv").map {|st| "('#{st[0]}', #{st[1]}, #{st[2]}, #{st[3]}, #{st[4]}, #{st[5]})"}.join(', ')
-		Sizetype.connection.execute("INSERT INTO sizetypes (SizeType, ToMondo1, ToMondo0, SizeTypeInterval, MinSize, MaxSize) VALUES #{insertString}")
+		Sizetype.connection.execute("INSERT INTO sizetypes (\"SizeType\", \"ToMondo1\", \"ToMondo0\", \"SizeTypeInterval\", \"MinSize\", \"MaxSize\") VALUES #{insertString}")
 	end
 end

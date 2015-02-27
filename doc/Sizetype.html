@@ -64,7 +64,17 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-c-seedfromCSV">::seedfromCSV</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -88,94 +98,52 @@
     
 
     
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
 
-      
-      <div id="attribute-i-MaxSize" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">MaxSize</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
 
-        <div class="method-description">
+    
+      <div id="method-c-seedfromCSV" class="method-detail ">
         
-        
-        
+        <div class="method-heading">
+          <span class="method-name">seedfromCSV</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
         </div>
-      </div>
-      
-      <div id="attribute-i-MinSize" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">MinSize</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
+        
 
         <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-SizeType" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">SizeType</span><span
-            class="attribute-access-type">[R]</span>
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="seedfromCSV-source">
+            <pre><span class="ruby-comment"># File app/models/sizetype.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">seedfromCSV</span>       <span class="ruby-comment"># assumes the CSV file to be in &quot;db/preseeds/SizeTypes.csv&quot;</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;csv&#39;</span>
+        <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">delete_all</span>
+        <span class="ruby-identifier">insertString</span> = <span class="ruby-constant">CSV</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;db/preseeds/SizeTypes.csv&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">st</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;(&#39;#{st[0]}&#39;, #{st[1]}, #{st[2]}, #{st[3]}, #{st[4]}, #{st[5]})&quot;</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+        <span class="ruby-constant">Sizetype</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;INSERT INTO sizetypes (SizeType, ToMondo1, ToMondo0, SizeTypeInterval, MinSize, MaxSize) VALUES #{insertString}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
         </div>
 
-        <div class="method-description">
         
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-SizeTypeInterval" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">SizeTypeInterval</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
 
-        <div class="method-description">
         
-        
-        
-        </div>
       </div>
-      
-      <div id="attribute-i-ToMondo0" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">ToMondo0</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
 
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-ToMondo1" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">ToMondo1</span><span
-            class="attribute-access-type">[R]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
+    
     </section>
-    
-
-    
+  
   </section>
 </main>
 
