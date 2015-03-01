@@ -22,6 +22,14 @@ class Customer < ActiveRecord::Base
   	cust.save!
   end
 
+  def updateShoeStats
+    realSizes = Shoe.where(OwnerID: self.CustID).pluck(:RealSize).extend(DescriptiveStatistics)
+    # self.ShoeSize = realSizes.mean
+    # self.ShoeSizeError = realSizes.standard_deviation
+    # self.save!
+    self.update(ShoeSize: realSizes.mean, ShoeSizeError: realSizes.standard_deviation)
+  end
+
   def Customer.predictSizeToBuy(_custID, _brand, _style, _material, _sizeType)
   	t2rs = Typetorealsize.find_by_BrandStyleMaterial("#{_brand}|#{_style}|#{_material}")
   	cust = Customer.find_by_CustID(_custID)

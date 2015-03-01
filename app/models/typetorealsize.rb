@@ -18,17 +18,17 @@ class Typetorealsize < ActiveRecord::Base
 		t2rs_entry_info = T2rsEntryInfo.all.limit(row_limit)
 		ndiff = t2rs_entry_info.distinct.count(:PreSize)
 
-		if ndiff >= 2
-			x0, x1, x2 = t2rs_entry_info.count, t2rs_entry_info.sum(:PreSize), t2rs_entry_info.sum("PreSize*PreSize")
-			y0, y1 = t2rs_entry_info.sum(:ShoeSize), t2rs_entry_info.sum("PreSize*ShoeSize")
-			err = t2rs_entry_info.pluck("RealSize-ShoeSize").extend(DescriptiveStatistics).standard_deviation
-
+		if ndiff >= 2 # calculate relevant numbers
+			preshoe = t2rs_entry_info.all.map{|s| [s.PreSize, s.PreSize*s.PreSize, s.ShoeSize, s.PreSize*s.ShoeSize]}
+			x0, x1, x2, y0, y1 = [preshoe.count] + preshoe.transpose.map{|l| l.sum}	# + is array concatenation - did this way for more succinct syntax
+			err = preshoe.map{|s| s[2]-s[0]}.extend(DescriptiveStatistics).standard_deviation
+			
+			# update coefficients to a weighted average of the current coefficients and some 'ideal' coefficients
 			c0 = 0.25*(c0 + 3.0*(+x2*y0 - x1*y1))
 			c1 = 0.25*(c1 + 3.0*(-x1*y0 + x0*y1))
 		end
 
-		t2rs_entry.ToMondo1, t2rs_entry.ToMondo0, t2rs_entry.Uncertainty = c1, c0, err
-		t2rs_entry.save!
+		t2rs_entry.update!(ToMondo1: c1, ToMondo0: c0, Uncertainty: err, modified: false)
 	end
 
 	def Typetorealsize.update
@@ -46,8 +46,7 @@ class Typetorealsize < ActiveRecord::Base
 
 		affShoes.pluck(:T2RS_ID, :ShoeID).each do |entry|	# update shoes' realSizes
 			shoe = Shoe.find_by_ShoeID(entry[1])
-			shoe.RealSize = Shoe.preToRealSize(entry[0],shoe.preRealSize)
-			shoe.save!
+			shoe.update!(RealSize: Shoe.preToRealSize(entry[0], shoe.preRealSize))
 		end
 
 		affShoes.pluck(:OwnerID).uniq.each do |ownerid|	# update details of owners with affected shoes
@@ -55,9 +54,10 @@ class Typetorealsize < ActiveRecord::Base
 		end
 
 		affShoes.pluck(:T2RS_ID).uniq.each do |t2rsid|	# update T2RS Uncertainty coefficients
-			t2rs = Typetorealsize.find_by_T2RS_ID(t2rsid)
-			t2rs.Uncertainty = affShoes.where(T2RS_ID: t2rsid).pluck("RealSize-ShoeSize").extend(DescriptiveStatistics).standard_deviation
-			t2rs.save!
+			# t2rs = Typetorealsize.find_by_T2RS_ID(t2rsid)
+			# t2rs.Uncertainty = affShoes.where(T2RS_ID: t2rsid).pluck("\"RealSize\"-\"ShoeSize\"").extend(DescriptiveStatistics).standard_deviation
+			# t2rs.save!
+			Typetorealsize.find_by_T2RS_ID(t2rsid).update!(Uncertainty: affShoes.where(T2RS_ID: t2rsid).pluck("\"RealSize\"-\"ShoeSize\"").extend(DescriptiveStatistics).standard_deviation)
 		end
 
 		AffectedShoe.delete_all

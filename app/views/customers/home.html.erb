@@ -68,7 +68,6 @@
 
 		<%= form_for :newshoe, url: addshoe_path do |s| %>
 			<tr class="form-group row">
-				<%= s.hidden_field :OwnerID, value: @customer.CustID %>
 				<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
 				<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
 				<td><%= s.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>

@@ -32,9 +32,9 @@ class CustomersController < ApplicationController
 
 	def addshoe
 		@parms = newshoe_params
-		newShoe = Shoe.new(@parms)
+		newShoe = @customer.shoes.build(@parms)
 		newPreSize = Shoe.sizeToPreSize(@parms[:Size], @parms[:SizeType], @parms[:LengthFit])
-		if @customer.nil? or (not @customer.ShoeSize) or (newPreSize - @customer.ShoeSize).abs <= 30.0
+		if (newPreSize - @customer.ShoeSize).abs <= 30.0 or not @customer.ShoeSize
 			newShoe.save
 			Customer.updateShoeStats(@customer.CustID)
 		else
@@ -46,7 +46,7 @@ class CustomersController < ApplicationController
 
 	def delshoe
 		@parms = delshoe_params
-		Shoe.find_by_ShoeID(@parms[:ShoeID]).destroy
+		Shoe.destroy(@parms[:ShoeID])
 		Customer.updateShoeStats(@customer.CustID)
 
 		redirect_to home_path
