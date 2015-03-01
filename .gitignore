@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore Gemfile.lock (not needed on Heroku)
-/Gemfile.lock
+# /Gemfile.lock
