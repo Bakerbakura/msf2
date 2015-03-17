@@ -35,8 +35,8 @@ class CustomersController < ApplicationController
 		newPreSize = Shoe.sizeToPreSize(@parms[:Size], @parms[:SizeType], @parms[:LengthFit])
 		if not @customer.ShoeSize or (newPreSize - @customer.ShoeSize).abs <= 30.0
 			newShoe.save
-			# Customer.updateShoeStats(@customer.CustID)
-			# @customer.updateShoeStats -- commented because of updateShoeStats call in Shoe.rb's after_save trigger
+			# Customer.updateStats(@customer.CustID)
+			# @customer.updateStats -- commented because of updateStats call in Shoe.rb's after_save trigger
 		else
 			flash[:warning] = "You entered a new shoe with a size very different to your previous average shoe size. Please check the size of your new shoe or that of the shoes you have already entered."
 		end
@@ -47,8 +47,8 @@ class CustomersController < ApplicationController
 	def delshoe
 		@parms = delshoe_params
 		Shoe.destroy(@parms[:ShoeID])
-		# Customer.updateShoeStats(@customer.CustID)
-		@customer.updateShoeStats
+		# Customer.updateStats(@customer.CustID)
+		@customer.updateStats
 
 		redirect_to home_path
 	end

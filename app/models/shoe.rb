@@ -16,8 +16,8 @@ class Shoe < ActiveRecord::Base
   	self.T2RS_ID = t2rsid
   end
   after_save do
-    # Customer.updateShoeStats(self.OwnerID)
-    self.owner.updateShoeStats
+    # Customer.updateStats(self.OwnerID)
+    self.owner.updateStats
   end
 
   def Shoe.sizeToPreSize(_size, _sizeType, _lengthFit)

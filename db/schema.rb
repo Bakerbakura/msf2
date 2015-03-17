@@ -16,16 +16,6 @@ ActiveRecord::Schema.define(version: 20150313123054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "affected_shoes", force: true do |t|
-    t.integer "ShoeID",   limit: 8
-    t.integer "OwnerID",  limit: 8
-    t.integer "T2RS_ID",  limit: 8
-    t.float   "RealSize"
-    t.float   "ShoeSize"
-  end
-
-  add_index "affected_shoes", ["T2RS_ID"], name: "index_affected_shoes_on_T2RS_ID", using: :btree
-
   create_table "brands", id: false, force: true do |t|
     t.string "Brand", limit: 30, null: false
   end
@@ -92,13 +82,6 @@ ActiveRecord::Schema.define(version: 20150313123054) do
   end
 
   add_index "styles", ["Style"], name: "index_styles_on_Style", unique: true, using: :btree
-
-  create_table "t2rs_entry_infos", force: true do |t|
-    t.integer "OwnerID",  limit: 8
-    t.float   "PreSize"
-    t.float   "RealSize"
-    t.float   "ShoeSize"
-  end
 
   create_table "temp_customers", primary_key: "tCustID", force: true do |t|
     t.string   "Gender",            limit: 1,  null: false

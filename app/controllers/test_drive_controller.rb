@@ -26,7 +26,7 @@ class TestDriveController < ApplicationController
     newPreSize = Shoe.sizeToPreSize(@parms[:Size], @parms[:SizeType], @parms[:LengthFit])
     if not @tcustomer.ShoeSize or (newPreSize - @tcustomer.ShoeSize).abs <= 30.0
       newShoe.save
-      @tcustomer.updateShoeStats
+      @tcustomer.updateStats
     else
       flash[:warning] = "You entered a new shoe with a size very different to your previous average shoe size. Please check the size of your new shoe or that of the shoes you have already entered."
     end
@@ -37,7 +37,7 @@ class TestDriveController < ApplicationController
   def delshoe
     @parms = delshoe_params
     TempShoe.destroy(@parms[:ShoeID])
-    @tcustomer.updateShoeStats
+    @tcustomer.updateStats
 
     redirect_to td_addshoes_path
   end

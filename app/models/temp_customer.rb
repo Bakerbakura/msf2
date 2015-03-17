@@ -2,7 +2,7 @@ class TempCustomer < ActiveRecord::Base
 	self.primary_key = :tCustID
 	has_many :shoes, class_name: "TempShoe", primary_key: "tCustID", foreign_key: "OwnerID", dependent: :destroy
 
-	def updateShoeStats
+	def updateStats
 		realSizes = self.shoes.pluck(:RealSize).extend(DescriptiveStatistics)
 		self.update!(ShoeSize: realSizes.mean, ShoeSizeError: realSizes.standard_deviation)
 	end

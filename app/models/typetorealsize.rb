@@ -49,11 +49,11 @@ class Typetorealsize < ActiveRecord::Base
 		end
 
 		# affShoes.pluck(:OwnerID).uniq.each do |ownerid|	# update details of owners with affected shoes
-		# 	Customer.updateShoeStats(ownerid)
+		# 	Customer.updateStats(ownerid)
 		# end
 
 		affShoes.group(:OwnerID).each do |shoe|	# update stats of owners with affected shoes
-			shoe.owner.updateShoeStats
+			shoe.owner.updateStats
 		end
 
 		# affShoes.pluck(:T2RS_ID).uniq.each do |t2rsid|	# update T2RS error values

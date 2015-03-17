@@ -14,11 +14,11 @@ class Customer < ActiveRecord::Base
   # validates_inclusion_of :Gender, in: ["M","F"],                            message: "Invalid gender."
   # validates_inclusion_of :preferredSizeType, in: Sizetype.pluck(:SizeType), message: "Invalid preferredSizeType."
 
-  def Customer.updateShoeStats(_custID)
-   Customer.find_by_CustID!(_custID).updateShoeStats
+  def Customer.updateStats(_custID)
+   Customer.find_by_CustID!(_custID).updateStats
   end
 
-  def updateShoeStats
+  def updateStats
     # realSizes = Shoe.where(OwnerID: self.CustID).pluck(:RealSize).extend(DescriptiveStatistics)
     realSizes = self.shoes.map{|s| s.RealSize}.extend(DescriptiveStatistics)  # use map instead of pluck because self.shoes returns an array, not an AR:Relation object
     self.update!(ShoeSize: realSizes.mean, ShoeSizeError: realSizes.standard_deviation)
@@ -35,7 +35,7 @@ class Customer < ActiveRecord::Base
 
   def Customer.emptyShoeSizeSweep()
     Customer.where(ShoeSize: nil).each do |cust|
-      cust.updateShoeStats
+      cust.updateStats
     end
   end
 end

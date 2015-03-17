@@ -12,6 +12,6 @@ class TempShoe < ActiveRecord::Base
 		self.T2RS_ID = t2rsid
 	end
 	after_save do 
-		self.owner.updateShoeStats
+		self.owner.updateStats
 	end
 end
