@@ -88,4 +88,6 @@ if Brand.count == 0
     {Style: "Slippers"},
     {Style: "Work & Safety"}
   ])
+
+  Typetorealsize.initialise
 end
