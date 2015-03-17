@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class T2rsEntryInfoTest < ActiveSupport::TestCase
+class TempCustomerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

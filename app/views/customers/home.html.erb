@@ -53,7 +53,7 @@
 
 	<tbody>
 		<% unless @shoes == nil %> <% @shoes.each do |shoe| %>
-		<%= form_for :delshoe, url: delshoe_path, method: :delete do |s| %>
+		<%= form_for :delshoe, url: home_path, method: :delete do |s| %>
 			<tr class="row">
 				<%= s.hidden_field :ShoeID, :value => shoe[:ShoeID] %>
 				<td align="left"><%= shoe[:Brand] %></td>
@@ -66,7 +66,7 @@
 		<% end %>
 		<% end %> <% end %>
 
-		<%= form_for :newshoe, url: addshoe_path do |s| %>
+		<%= form_for :newshoe, url: home_path, method: :post do |s| %>
 			<tr class="form-group row">
 				<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
 				<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
@@ -102,7 +102,6 @@
 					<td><%= p.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
 					<td><%= p.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
 					<td><%= p.collection_select :SizeType, Sizetype.all, :SizeType, :SizeType, {}, {class: "form-control"} %></td>
-					<%= p.hidden_field :CustID, :value => @customer.CustID %>
 					<td><%= p.submit "Make a prediction", class: "btn btn-success btn-block" %></td>
 				</tr>
 			<% end %>
@@ -112,5 +111,5 @@
 	<p>Unfortunately, you do not have enough registered shoes for us to accurately make predictions for you. Please add at least <%= 3 - @shoes.count %> more shoes to unlock this section.</p>
 <% end %>
 
-<p><%= button_to "List of all customers", customers_path, :class => "btn", :method => :get %></p>
+<p><%= button_to "List of all customers", index_path, :class => "btn", :method => :get %></p>
 <p><%= button_to "Sign out", signout_path, via: :delete, :class => "btn btn-warning", :method => :get %></p>

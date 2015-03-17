@@ -3,27 +3,29 @@ Rails.application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'welcome#index'
 
-  resources :customers, only: [:create, :index]
-  # match "signup",   to: "customers#new",            via: :get
-  # match "home",     to: "customers#home",           via: :get
-  # match "addshoe",  to: "customers#addshoe",        via: :post
-  # match "delshoe",  to: "customers#delshoe",        via: :delete
-  # match "predict",  to: "customers#predict"
-  
-  # match "signin",   to: "sessions#signin",          via: :get
-  # match "signin",   to: "sessions#signin_attempt",  via: :post
-  # match "signout",  to: "sessions#signout"
-
-  get     "signup",   to: "customers#new"
-  get     "home",     to: "customers#home"
-  post    "addshoe",  to: "customers#addshoe"
-  delete  "delshoe",  to: "customers#delshoe"
-  get     "predict",  to: "customers#predict"
-  get     "index",    to: "customers#index"
+  # resources :customers, only: [:create, :index]
   
   get   "signin",   to: "sessions#signin"
   post  "signin",   to: "sessions#signin_attempt"
   get   "signout",  to: "sessions#signout"
+
+  get     "signup",   to: "customers#new"
+  post    "signup",   to: "customers#create"
+  get     "home",     to: "customers#home"
+  post    "home",     to: "customers#addshoe"
+  delete  "home",     to: "customers#delshoe"
+  get     "predict",  to: "customers#predict"
+  get     "index",    to: "customers#index"
+  
+  get     "td_start",     to: "test_drive#start"
+  post    "td_start",     to: "test_drive#create"
+  get     "td_addshoes",  to: "test_drive#addshoes"
+  post    "td_addshoes",  to: "test_drive#addshoe"
+  delete  "td_delshoes",  to: "test_drive#delshoe"
+  get     "td_ask",       to: "test_drive#ask"
+  get     "td_predict",   to: "test_drive#prediction"
+  get     "td_solidify",  to: "test_drive#solidify"
+  post    "td_solidify",  to: "test_drive#do_solidify"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

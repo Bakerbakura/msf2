@@ -9,6 +9,13 @@ namespace :db do
 
 			puts "Finished seeding from CSV files."
 		end
+
+		desc "Generate T2RS table from Brands, Styles and Materials tables"
+		task :t2rs => :environment do
+			Typetorealsize.initialise
+
+			puts "Finished seeding Typetorealsizes table."
+		end
 	end
 end
 

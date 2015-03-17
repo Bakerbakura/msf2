@@ -1,0 +1,27 @@
+<h1>Request a prediction</h1>
+
+<p class="row">Now we're ready to predict the size of shoe you should buy. Simply fill in the details of the type of shoe you want to buy below:</p><br>
+
+<table class="table">
+	<thead>
+		<tr class="row">
+			<th class="col-sm-3 col-md-3">Brand</th>
+			<th class="col-sm-2 col-md-2">Style</th>
+			<th class="col-sm-2 col-md-2">Material</th>
+			<th class="col-sm-2 col-md-2">SizeType</th>
+			<th class="col-sm-2 col-md-2"></th>
+			<div class="col-sm-1 col-md-1"></div>
+		</tr>
+	</thead>
+	<tbody>
+		<%= form_for :predic, url: td_predict_path, method: :get do |p| %>
+			<tr class="form-group row">
+				<td><%= p.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+				<td><%= p.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+				<td><%= p.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+				<td><%= p.collection_select :SizeType, Sizetype.all, :SizeType, :SizeType, {}, {class: "form-control"} %></td>
+				<td><%= p.submit "Make a prediction", class: "btn btn-success btn-block" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

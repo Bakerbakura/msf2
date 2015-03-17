@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
 	self.primary_key = :CustID
-  has_many :shoes, primary_key: "CustID", foreign_key: "OwnerID"
+  has_many :shoes, primary_key: "CustID", foreign_key: "OwnerID", dependent: :destroy
   
   # validates_presence_of :Email, :Gender, :password, :preferredSizeType
   # validates_presence_of :password_confirmation
@@ -15,34 +15,27 @@ class Customer < ActiveRecord::Base
   # validates_inclusion_of :preferredSizeType, in: Sizetype.pluck(:SizeType), message: "Invalid preferredSizeType."
 
   def Customer.updateShoeStats(_custID)
-  	realSizes = Shoe.where(OwnerID: _custID).pluck(:RealSize).extend(DescriptiveStatistics)
-    cust = Customer.find_by_CustID!(_custID)
-  	cust.ShoeSize = realSizes.mean
-  	cust.ShoeSizeError = realSizes.standard_deviation
-  	cust.save!
+   Customer.find_by_CustID!(_custID).updateShoeStats
   end
 
   def updateShoeStats
-    realSizes = Shoe.where(OwnerID: self.CustID).pluck(:RealSize).extend(DescriptiveStatistics)
-    # self.ShoeSize = realSizes.mean
-    # self.ShoeSizeError = realSizes.standard_deviation
-    # self.save!
-    self.update(ShoeSize: realSizes.mean, ShoeSizeError: realSizes.standard_deviation)
+    # realSizes = Shoe.where(OwnerID: self.CustID).pluck(:RealSize).extend(DescriptiveStatistics)
+    realSizes = self.shoes.map{|s| s.RealSize}.extend(DescriptiveStatistics)  # use map instead of pluck because self.shoes returns an array, not an AR:Relation object
+    self.update!(ShoeSize: realSizes.mean, ShoeSizeError: realSizes.standard_deviation)
   end
 
-  def Customer.predictSizeToBuy(_custID, _brand, _style, _material, _sizeType)
-  	t2rs = Typetorealsize.find_by_BrandStyleMaterial("#{_brand}|#{_style}|#{_material}")
-  	cust = Customer.find_by_CustID(_custID)
-  	stToMondo1 = Sizetype.find_by_SizeType!(_sizeType).ToMondo1
-  	return {
-      prediction: Shoe.FromMondo((cust.ShoeSize - t2rs.ToMondo0)/t2rs.ToMondo1, _sizeType),
-  		error: Math.sqrt(t2rs.Uncertainty*t2rs.Uncertainty + cust.ShoeSizeError*cust.ShoeSizeError)/stToMondo1
+  def predictSizeToBuy(_brand, _style, _material, _sizeType)
+    t2rs = Typetorealsize.find_by_BrandStyleMaterial("#{_brand}|#{_style}|#{_material}")
+    stToMondo1 = Sizetype.find_by_SizeType!(_sizeType).ToMondo1
+    return {
+      prediction: Shoe.FromMondo((self.ShoeSize - t2rs.ToMondo0)/t2rs.ToMondo1, _sizeType),
+      error: Math.sqrt(t2rs.Uncertainty*t2rs.Uncertainty + self.ShoeSizeError*self.ShoeSizeError)/stToMondo1
     }
   end
 
   def Customer.emptyShoeSizeSweep()
-    Customer.where(ShoeSize: nil).pluck(:CustID).each do |custid|
-      Customer.updateShoeStats(custid)
+    Customer.where(ShoeSize: nil).each do |cust|
+      cust.updateShoeStats
     end
   end
 end

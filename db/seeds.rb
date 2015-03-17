@@ -70,10 +70,10 @@ Material.create!([
   {Material: "Rubber"}
 ])
 Sizetype.create!([
-  {SizeType: "Europe", ToMondo1: 6.67, ToMondo0: -10.0, SizeTypeInterval: 0.5, MinSize: 32.0, MaxSize: 49.0},
-  {SizeType: "Mondopoint", ToMondo1: 1.0, ToMondo0: 0.0, SizeTypeInterval: 5.0, MinSize: 200.0, MaxSize: 320.0},
-  {SizeType: "UK/Australia", ToMondo1: 8.47, ToMondo0: 201.67, SizeTypeInterval: 0.5, MinSize: 0.0, MaxSize: 14.0},
-  {SizeType: "US/Canada", ToMondo1: 8.47, ToMondo0: 292.0, SizeTypeInterval: 0.5, MinSize: 1.0, MaxSize: 15.0}
+  {SizeType: "Europe",        ToMondo1: 6.67, ToMondo0: -10.0,  SizeTypeInterval: 0.5, MinSize: 32.0,   MaxSize: 49.0},
+  {SizeType: "Mondopoint",    ToMondo1: 1.0,  ToMondo0: 0.0,    SizeTypeInterval: 5.0, MinSize: 200.0,  MaxSize: 320.0},
+  {SizeType: "UK/Australia",  ToMondo1: 8.47, ToMondo0: 201.67, SizeTypeInterval: 0.5, MinSize: 0.0,    MaxSize: 14.0},
+  {SizeType: "US/Canada",     ToMondo1: 8.47, ToMondo0: 292.0,  SizeTypeInterval: 0.5, MinSize: 1.0,    MaxSize: 15.0}
 ])
 Style.create!([
   {Style: "Athletic"},

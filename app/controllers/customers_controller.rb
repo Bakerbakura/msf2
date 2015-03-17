@@ -8,10 +8,8 @@ class CustomersController < ApplicationController
 
 	def create
 		@parms = newcustomer_params
-		@lessparms = @parms.reject{|k,v| k == "Email_confirmation"}
-		# puts @lessparms
 		if @parms["Email"] == @parms["Email_confirmation"]
-			@customer = Customer.new(@lessparms)
+			@customer = Customer.new(@parms.reject{|k,v| k == "Email_confirmation"})	# Customer model doesn't have Email_confirmation field -- only used here for verification.
 			@customer.save!
 			session[:CustID] = @customer.CustID
 			session[:preferredSizeType] = Sizetype.find_by_SizeType!(@customer.preferredSizeType)
@@ -23,7 +21,8 @@ class CustomersController < ApplicationController
 	end
 
 	def home
-		@shoes = Shoe.where({OwnerID: @customer.CustID}).to_a
+		# @shoes = Shoe.where({OwnerID: @customer.CustID}).to_a
+		@shoes = @customer.shoes
 	end
 
 	def index
@@ -34,9 +33,10 @@ class CustomersController < ApplicationController
 		@parms = newshoe_params
 		newShoe = @customer.shoes.build(@parms)
 		newPreSize = Shoe.sizeToPreSize(@parms[:Size], @parms[:SizeType], @parms[:LengthFit])
-		if (newPreSize - @customer.ShoeSize).abs <= 30.0 or not @customer.ShoeSize
+		if not @customer.ShoeSize or (newPreSize - @customer.ShoeSize).abs <= 30.0
 			newShoe.save
-			Customer.updateShoeStats(@customer.CustID)
+			# Customer.updateShoeStats(@customer.CustID)
+			# @customer.updateShoeStats -- commented because of updateShoeStats call in Shoe.rb's after_save trigger
 		else
 			flash[:warning] = "You entered a new shoe with a size very different to your previous average shoe size. Please check the size of your new shoe or that of the shoes you have already entered."
 		end
@@ -47,15 +47,16 @@ class CustomersController < ApplicationController
 	def delshoe
 		@parms = delshoe_params
 		Shoe.destroy(@parms[:ShoeID])
-		Customer.updateShoeStats(@customer.CustID)
+		# Customer.updateShoeStats(@customer.CustID)
+		@customer.updateShoeStats
 
 		redirect_to home_path
 	end
 
 	def predict
 		@parms = predic_params
-		Customer.establish_connection
-		results = Customer.predictSizeToBuy(@parms[:CustID], @parms[:Brand], @parms[:Style], @parms[:Material], @parms[:SizeType])
+		# Customer.establish_connection
+		results = @customer.predictSizeToBuy(@parms[:Brand], @parms[:Style], @parms[:Material], @parms[:SizeType])
 		@parms["prediction"] = results[:prediction]
 		@parms["error"] = results[:error]
 	end
@@ -74,6 +75,6 @@ class CustomersController < ApplicationController
 		end
 
 		def predic_params
-			params.require(:predic).permit(:CustID, :Brand, :Style, :Material, :SizeType)
+			params.require(:predic).permit(:Brand, :Style, :Material, :SizeType)
 		end
 end

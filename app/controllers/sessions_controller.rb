@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   
-  before_filter :save_login_state, 
-  	:only => [:signin, :signin_attempt]
+  before_filter :save_login_state, :only => [:signin, :signin_attempt]
 
   def signin
   end

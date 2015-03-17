@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ShoeID: 
+  OwnerID: 1
+  T2RS_ID: 1
+  Brand: MyString
+  Style: MyString
+  Material: MyString
+  SizeType: MyString
+  LengthFit: MyString
+  Size: 1.5
+  preRealSize: 1.5
+  RealSize: 1.5
+
+two:
+  ShoeID: 
+  OwnerID: 1
+  T2RS_ID: 1
+  Brand: MyString
+  Style: MyString
+  Material: MyString
+  SizeType: MyString
+  LengthFit: MyString
+  Size: 1.5
+  preRealSize: 1.5
+  RealSize: 1.5

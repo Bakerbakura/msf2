@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226134530) do
+ActiveRecord::Schema.define(version: 20150313123054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,30 @@ ActiveRecord::Schema.define(version: 20150226134530) do
     t.float   "PreSize"
     t.float   "RealSize"
     t.float   "ShoeSize"
+  end
+
+  create_table "temp_customers", primary_key: "tCustID", force: true do |t|
+    t.string   "Gender",            limit: 1,  null: false
+    t.string   "preferredSizeType", limit: 20, null: false
+    t.float    "ShoeSize"
+    t.float    "ShoeSizeError"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "temp_shoes", primary_key: "ShoeID", force: true do |t|
+    t.integer  "OwnerID",     limit: 8,  null: false
+    t.integer  "T2RS_ID",     limit: 8,  null: false
+    t.string   "Brand",       limit: 30, null: false
+    t.string   "Style",       limit: 20, null: false
+    t.string   "Material",    limit: 30, null: false
+    t.string   "SizeType",    limit: 20, null: false
+    t.string   "LengthFit",   limit: 20, null: false
+    t.float    "Size",                   null: false
+    t.float    "preRealSize"
+    t.float    "RealSize"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "typetorealsizes", primary_key: "T2RS_ID", force: true do |t|

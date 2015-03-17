@@ -1,0 +1,48 @@
+<h1>Let's add some shoes</h1>
+
+<p class="row">We're going to need you to add some of your existing shoes to the system so that we can get an idea of what your shoe size is.</p>
+<p class="row">Use the form below to add at least three of your best fitting shoes. The more shoes you add, the more accurately we can calculate your shoe size!</p><br>
+
+<table class="table">
+	<thead>
+		<tr class="row">
+			<th class="col-md-3 col-sm-3"><strong>Brand</strong></th>
+			<th class="col-md-2 col-sm-2"><strong>Style</strong></th>
+			<th class="col-md-2 col-sm-2"><strong>Material</strong></th>
+			<th class="col-md-1 col-sm-1"><strong>Size</strong></th>
+			<th class="col-md-2 col-sm-2"><strong>LengthFit</strong></th>
+			<th class="col-md-2 col-sm-2"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% unless @shoes == nil %> <% @shoes.each do |shoe| %>
+			<%= form_for :td_delshoe, url: td_addshoes_path, method: :delete do |s| %>
+				<tr class="row">
+					<%= s.hidden_field :ShoeID, :value => shoe[:ShoeID] %>
+					<td align="left"><%= shoe[:Brand] %></td>
+					<td align="left"><%= shoe[:Style] %></td>
+					<td align="left"><%= shoe[:Material] %></td>
+					<td align="left"><%= shoe[:Size] %></td>
+					<td align="left"><%= shoe[:LengthFit] %></td>
+					<td><%= s.submit "Delete shoe", class: "btn btn-danger btn-block" %></td>
+				</tr>
+			<% end %>
+		<% end %> <% end %>
+
+		<%= form_for :td_newshoe, url: td_addshoes_path, method: :post do |s| %>
+			<tr class="form-group row">
+				<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+				<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+				<td><%= s.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+				<% tempST = Sizetype.find_by_SizeType(@tcustomer.preferredSizeType) %>
+				<td><%= s.select :Size, (tempST.MinSize..tempST.MaxSize).step(tempST.SizeTypeInterval).to_a, {}, {class: "form-control"} %> </td>
+				<%= s.hidden_field :SizeType, value: tempST.SizeType %>
+				<td><%= s.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
+				<td><%= s.submit "Add new shoe", class: "btn btn-success btn-block" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table><br>
+
+<% if @shoes.count >=3 %> <%= button_to "Continue", td_ask_path, class: "btn btn-primary", method: :get %> <% end %>

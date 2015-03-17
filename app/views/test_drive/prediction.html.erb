@@ -1,0 +1,27 @@
+<h1>Prediction</h1>
+
+<p class="row">
+	<div class="col-md-4"></div>
+	<div class="col-sm-12 col-md-4">
+		Based on your data, our amazing algorithms and a little bit of fairy dust, we have concluded that when buying a <%= @parms[:Brand] %> made of <%= @parms[:Material] %> in the <%= @parms[:Style] %> style and the <%= @parms[:SizeType] %> SizeType, the best size for you to buy would be <%= @parms[:prediction] %>, with an uncertainty of <%= @parms[:error] %>.
+	</div>
+	<div class="col-md-4"></div>
+</p><br>
+
+<p class="row">
+	<div class="col-md-4"></div>
+	<div class="col-sm-6 col-md-2"><%= button_to "Make another prediction", td_ask_path, class: "btn btn-primary", method: :get %></div>
+	<div class="col-sm-6 col-md-2"><%= button_to "Thanks, I'm done now", root_path, class: "btn btn-warning", method: :get %></div>
+	<div class="col-md-4"></div>
+</p><br><br><br>
+
+<p class="row">
+	<div class="col-md-4"></div>
+	<div class="col-sm-12 col-md-4">Like what we're doing? Think you'll need this again? Save your details to make future visits easier:</div>
+	<div class="col-md-4"></div>
+</p>
+<p class="row">
+	<div class="col-md-4"></div>
+	<div class="col-sm-12 col-md-4"><%= button_to "Save my details", td_solidify_path, class: "btn btn-success", method: :get %></div>
+	<div class="col-md-4"></div>
+</p>
