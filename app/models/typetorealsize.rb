@@ -34,7 +34,11 @@ class Typetorealsize < ActiveRecord::Base
 
 		affShoes = Shoe.all.includes(:owner, :typetorealsize).where(typetorealsizes: {modified: true}).references(:typetorealsizes)
 		
-		affShoes.group(:T2RS_ID).each do |shoe|
+		# affShoes.group('"T2RS_ID"').each do |shoe|
+		# 	shoe.typetorealsize.update_entry
+		# end
+
+		affShoes.select(:T2RS_ID).uniq.each do |shoe|
 			shoe.typetorealsize.update_entry
 		end
 
@@ -52,7 +56,7 @@ class Typetorealsize < ActiveRecord::Base
 		# 	Customer.updateStats(ownerid)
 		# end
 
-		affShoes.group(:OwnerID).each do |shoe|	# update stats of owners with affected shoes
+		affShoes.select(:OwnerID).uniq.each do |shoe|	# update stats of owners with affected shoes
 			shoe.owner.updateStats
 		end
 
@@ -60,7 +64,7 @@ class Typetorealsize < ActiveRecord::Base
 		# 	Typetorealsize.find_by_T2RS_ID(t2rsid).update!(Uncertainty: affShoes.where(T2RS_ID: t2rsid).pluck("\"RealSize\"-\"ShoeSize\"").extend(DescriptiveStatistics).standard_deviation)
 		# end
 
-		affShoes.group(:T2RS_ID).each do |shoe|	# update T2RS error values
+		affShoes.select(:T2RS_ID).uniq.each do |shoe|	# update T2RS error values
 			arr = affShoes.where(T2RS_ID: shoe.T2RS_ID).pluck(:RealSize, :ShoeSize)
 			shoe.typetorealsize.update!(Uncertainty: Math.sqrt(arr.sum{|e| (e[0]-e[1])*(e[0]-e[1])}/arr.count), modified: false)
 		end
@@ -81,5 +85,7 @@ class Typetorealsize < ActiveRecord::Base
 			end
 		end
 		Typetorealsize.connection.execute("INSERT INTO typetorealsizes (\"BrandStyleMaterial\") VALUES #{inserts.join(', ')}")
+
+		puts "Finished seeding Typetorealsizes table."
 	end
 end
