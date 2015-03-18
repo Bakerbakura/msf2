@@ -66,6 +66,7 @@ class TestDriveController < ApplicationController
 
       session[:temp] = false
       session[:tCustID] = nil
+      @tcustomer.destroy
       @tcustomer = nil
       session[:CustID] = @customer.CustID
       session[:preferredSizeType] = Sizetype.find_by_SizeType!(@customer.preferredSizeType)
