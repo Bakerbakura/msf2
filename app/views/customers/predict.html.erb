@@ -2,7 +2,8 @@
 <p class="row">
 	<div class="col-md-4"></div>
 	<div class="col-sm-12 col-md-4">
-		Based on your data, our amazing algorithms and a little bit of fairy dust, we have concluded that when buying a <%= @parms[:Brand] %> made of <%= @parms[:Material] %> in the <%= @parms[:Style] %> style in the <%= @parms[:SizeType] %> SizeType, the best size for you to buy would be <%= @parms[:prediction] %>, with an uncertainty of <%= @parms[:error] %>.
+		<p>Based on your data, our amazing algorithms and a little bit of fairy dust, we have concluded that when buying a <%= @parms[:Brand] %> made of <%= @parms[:Material] %> in the <%= @parms[:Style] %> style and the <%= @parms[:SizeType] %> SizeType, your shoe size would be about <%= @parms[:prediction] %>, with an uncertainty of <%= @parms[:error] %>.</p>
+		<p>So you should buy a size <%= @parms[:pref1] %>, or if that's not available, a size <%= @parms[:pref2] %>.</p>
 	</div>
 	<div class="col-md-4"></div>
 </p>

@@ -78,6 +78,18 @@
 				<td><%= s.submit "Add new shoe", class: "btn btn-success btn-block" %></td>
 			</tr>
 		<% end %>
+		<!-- <%= form_for @newshoe, as: :newshoe, url: home_path, method: :post do |s| %>
+			<tr class="form-group row">
+				<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+				<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+				<td><%= s.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+				<td><%= s.collection_select :SizeType, Sizetype.all, :SizeType, :SizeType, {}, {class: "form-control"} %></td>
+				<% tempST = Sizetype.find_by_SizeType!(@newshoe.SizeType) %>
+				<td><%= s.select :Size, (tempST.MinSize..tempST.MaxSize).step(tempST.SizeTypeInterval).to_a, {}, {class: "form-control"} %> </td>
+				<td><%= s.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
+				<td><%= s.submit "Add new shoe", class: "btn btn-success btn-block" %></td>
+			</tr>
+		<% end %> -->
 	</tbody>
 </table>
 

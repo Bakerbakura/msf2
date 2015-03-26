@@ -12,7 +12,7 @@ class TestDriveController < ApplicationController
     @tcustomer.save!
     session[:temp] = true
     session[:tCustID] = @tcustomer.tCustID
-    session[:preferredSizeType] = Sizetype.find_by_SizeType!(@tcustomer.preferredSizeType)
+    # session[:preferredSizeType] = Sizetype.find_by_SizeType!(@tcustomer.preferredSizeType)
     redirect_to td_addshoes_path
   end
 
@@ -50,6 +50,8 @@ class TestDriveController < ApplicationController
     results = @tcustomer.predictSizeToBuy(@parms[:Brand], @parms[:Style], @parms[:Material], @parms[:SizeType])
     @parms["prediction"] = results[:prediction]
     @parms["error"] = results[:error]
+    @parms["pref1"] = results[:pref1]
+    @parms["pref2"] = results[:pref2]
   end
 
   def solidify
@@ -69,7 +71,7 @@ class TestDriveController < ApplicationController
       @tcustomer.destroy
       @tcustomer = nil
       session[:CustID] = @customer.CustID
-      session[:preferredSizeType] = Sizetype.find_by_SizeType!(@customer.preferredSizeType)
+      # session[:preferredSizeType] = Sizetype.find_by_SizeType!(@customer.preferredSizeType)
       redirect_to home_path
     else
       flash[:warning] = "Your email address was not entered correctly."

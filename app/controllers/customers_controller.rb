@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
 			@customer = Customer.new(@parms.reject{|k,v| k == "Email_confirmation"})	# Customer model doesn't have Email_confirmation field -- only used here for verification.
 			@customer.save!
 			session[:CustID] = @customer.CustID
-			session[:preferredSizeType] = Sizetype.find_by_SizeType!(@customer.preferredSizeType)
+			# session[:preferredSizeType] = Sizetype.find_by_SizeType!(@customer.preferredSizeType)
 			redirect_to home_path
 		else
 			flash[:warning] = "Your email address was not entered correctly."
@@ -21,8 +21,8 @@ class CustomersController < ApplicationController
 	end
 
 	def home
-		# @shoes = Shoe.where({OwnerID: @customer.CustID}).to_a
-		@shoes = @customer.shoes
+		@shoes = @customer.shoes.to_a
+		@newshoe = @customer.shoes.build(SizeType: @customer.preferredSizeType)
 	end
 
 	def index
@@ -35,7 +35,6 @@ class CustomersController < ApplicationController
 		newPreSize = Shoe.sizeToPreSize(@parms[:Size], @parms[:SizeType], @parms[:LengthFit])
 		if not @customer.ShoeSize or (newPreSize - @customer.ShoeSize).abs <= 30.0
 			newShoe.save
-			# Customer.updateStats(@customer.CustID)
 			# @customer.updateStats -- commented because of updateStats call in Shoe.rb's after_save trigger
 		else
 			flash[:warning] = "You entered a new shoe with a size very different to your previous average shoe size. Please check the size of your new shoe or that of the shoes you have already entered."
@@ -59,6 +58,8 @@ class CustomersController < ApplicationController
 		results = @customer.predictSizeToBuy(@parms[:Brand], @parms[:Style], @parms[:Material], @parms[:SizeType])
 		@parms["prediction"] = results[:prediction]
 		@parms["error"] = results[:error]
+		@parms["pref1"] = results[:pref1]
+		@parms["pref2"] = results[:pref2]
 	end
 
 	private
