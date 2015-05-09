@@ -1,127 +1,114 @@
-<h2>My Info</h2>
-<table class="table">
-	<tr class="row">
-		<div class="col-md-2"></div>
-		<td class="col-sm-3 col-md-2"><strong>CustID:</strong></td>
-		<td class="col-sm-9 col-md-6"><%= @customer.CustID %></td>
-		<div class="col-md-2"></div>
-	</tr>
-	<tr class="row">
-		<div class="col-md-2"></div>
-		<td class="col-sm-3 col-md-2"><strong>Email:</strong></td>
-		<td class="col-sm-9 col-md-6"><%= @customer.Email %></td>
-		<div class="col-md-2"></div>
-	</tr>
-	<tr class="row">
-		<div class="col-md-2"></div>
-		<td class="col-sm-3 col-md-2"><strong>Password:</strong></td>
-		<td class="col-sm-9 col-md-6"><%= @customer.password_digest %></td>
-		<div class="col-md-2"></div>
-	</tr>
-	<tr class="row">
-		<div class="col-md-2"></div>
-		<td class="col-sm-3 col-md-2"><strong>ShoeSize:</strong></td>
-		<td class="col-sm-9 col-md-6"><%= @customer.ShoeSize %></td>
-		<div class="col-md-2"></div>
-	</tr>
-	<tr class="row">
-		<div class="col-md-2"></div>
-		<td class="col-sm-3 col-md-2"><strong>ShoeSizeError:</strong></td>
-		<td class="col-sm-9 col-md-6"><%= @customer.ShoeSizeError %></td>
-		<div class="col-md-2"></div>
-	</tr>
-	<tr class="row">
-		<div class="col-md-2"></div>
-		<td class="col-sm-3 col-md-2"><strong>Preferred SizeType:</strong></td>
-		<td class="col-sm-9 col-md-6"><%= @customer.preferredSizeType %></td>
-		<div class="col-md-2"></div>
-	</tr>
-</table>
+<div class="page-header">
+	<h1>Home</h1>
+</div>
 
-<h2>My Shoes</h2>
-<table class="table">
-	<thead>
-		<tr class="row">
-			<th class="col-md-3 col-sm-3"><strong>Brand</strong></th>
-			<th class="col-md-2 col-sm-2"><strong>Style</strong></th>
-			<th class="col-md-2 col-sm-2"><strong>Material</strong></th>
-			<th class="col-md-1 col-sm-1"><strong>Size</strong></th>
-			<th class="col-md-2 col-sm-2"><strong>LengthFit</strong></th>
-			<th class="col-md-2 col-sm-2"></th>
-		</tr>
-	</thead>
+<div role="tabpanel">
+	<!-- Nav tabs -->
+	<nav role="navigation"><ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active col-xs-4 col-md-offset-3 col-md-2"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">My Info</a></li>
+		<li role="presentation" class="col-xs-4 col-md-2"><a href="#shoes" aria-controls="shoes" role="tab" data-toggle="tab">My Shoes</a></li>
+		<li role="presentation" class="col-xs-4 col-md-2"><a href="#predict" aria-controls="predict" role="tab" data-toggle="tab">Predict</a></li>
+	</ul></nav>
 
-	<tbody>
-		<% unless @shoes == nil %> <% @shoes.each do |shoe| %>
-		<%= form_for :delshoe, url: home_path, method: :delete do |s| %>
-			<tr class="row">
-				<%= s.hidden_field :ShoeID, :value => shoe[:ShoeID] %>
-				<td align="left"><%= shoe[:Brand] %></td>
-				<td align="left"><%= shoe[:Style] %></td>
-				<td align="left"><%= shoe[:Material] %></td>
-				<td align="left"><%= shoe[:Size] %></td>
-				<td align="left"><%= shoe[:LengthFit] %></td>
-				<td><%= s.submit "Delete shoe", class: "btn btn-danger btn-block" %></td>
-			</tr>
-		<% end %>
-		<% end %> <% end %>
-
-		<%= form_for :newshoe, url: home_path, method: :post do |s| %>
-			<tr class="form-group row">
-				<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
-				<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
-				<td><%= s.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
-				<% tempST = Sizetype.find_by_SizeType(@customer.preferredSizeType) %>
-				<td><%= s.select :Size, (tempST.MinSize..tempST.MaxSize).step(tempST.SizeTypeInterval).to_a, {}, {class: "form-control"} %> </td>
-				<%= s.hidden_field :SizeType, value: tempST.SizeType %>
-				<td><%= s.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
-				<td><%= s.submit "Add new shoe", class: "btn btn-success btn-block" %></td>
-			</tr>
-		<% end %>
-		<!-- <%= form_for @newshoe, as: :newshoe, url: home_path, method: :post do |s| %>
-			<tr class="form-group row">
-				<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
-				<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
-				<td><%= s.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
-				<td><%= s.collection_select :SizeType, Sizetype.all, :SizeType, :SizeType, {}, {class: "form-control"} %></td>
-				<% tempST = Sizetype.find_by_SizeType!(@newshoe.SizeType) %>
-				<td><%= s.select :Size, (tempST.MinSize..tempST.MaxSize).step(tempST.SizeTypeInterval).to_a, {}, {class: "form-control"} %> </td>
-				<td><%= s.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
-				<td><%= s.submit "Add new shoe", class: "btn btn-success btn-block" %></td>
-			</tr>
-		<% end %> -->
-	</tbody>
-</table>
-
-<h2>Shoe Prediction</h2>
-<% if @shoes.count >= 3 %>
-	<p>Fill in the details of the shoe you intend to buy, and we'll tell you which size you should take!</p>
-	<table class="table">
-		<thead>
-			<tr class="row">
-				<th class="col-sm-3 col-md-3">Brand</th>
-				<th class="col-sm-2 col-md-2">Style</th>
-				<th class="col-sm-2 col-md-2">Material</th>
-				<th class="col-sm-2 col-md-2">SizeType</th>
-				<th class="col-sm-2 col-md-2"></th>
-				<div class="col-sm-1 col-md-1"></div>
-			</tr>
-		</thead>
-		<tbody>
-			<%= form_for :predic, url: predict_path, method: :get do |p| %>
-				<tr class="form-group row">
-					<td><%= p.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
-					<td><%= p.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
-					<td><%= p.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
-					<td><%= p.collection_select :SizeType, Sizetype.all, :SizeType, :SizeType, {}, {class: "form-control"} %></td>
-					<td><%= p.submit "Make a prediction", class: "btn btn-success btn-block" %></td>
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane" id="info">
+			<h2>My Info</h2>
+			<table class="table">
+				<tr class="row">
+					<td class="col-xs-6 col-md-offset-4 col-md-2"><strong>Name:</strong></td>
+					<td class="col-xs-6 col-md-2"><%= @customer.Name %></td>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% else %>
-	<p>Unfortunately, you do not have enough registered shoes for us to accurately make predictions for you. Please add at least <%= 3 - @shoes.count %> more shoes to unlock this section.</p>
-<% end %>
+				<tr class="row">
+					<td class="col-xs-6 col-md-offset-4 col-md-2"><strong>Email:</strong></td>
+					<td class="col-xs-6 col-md-2"><%= @customer.Email %></td>
+				</tr>
+				<tr class="row">
+					<td class="col-xs-6 col-md-offset-4 col-md-2"><strong>Shoe size:</strong></td>
+					<td class="col-xs-6 col-md-2"><%= @customer.ShoeSize %></td>
+				</tr>
+				<tr class="row">
+					<td class="col-xs-6 col-md-offset-4 col-md-2"><strong>Shoe size uncertainty:</strong></td>
+					<td class="col-xs-6 col-md-2"><%= @customer.ShoeSizeError %></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div role="tabpanel" class="tab-pane" id="shoes">
+			<h2>My Shoes</h2>
+			<table class="table">
+				<thead>
+					<tr class="row">
+						<th class="col-xs-2 col-md-2"><strong>Brand</strong></th>
+						<th class="col-xs-2 col-md-2"><strong>Style</strong></th>
+						<th class="col-xs-2 col-md-2"><strong>Material</strong></th>
+						<th class="col-xs-2 col-md-2"><strong>Size</strong></th>
+						<th class="col-xs-2 col-md-2"><strong>LengthFit</strong></th>
+						<th class="col-xs-2 col-md-2"></th>
+					</tr>
+				</thead>
 
-<p><%= button_to "List of all customers", index_path, :class => "btn", :method => :get %></p>
-<p><%= button_to "Sign out", signout_path, via: :delete, :class => "btn btn-warning", :method => :get %></p>
+				<tbody>
+					<% unless @shoes == nil %> <% @shoes.each do |shoe| %>
+					<%= form_for :delshoe, url: home_path, method: :delete do |s| %>
+						<tr class="row">
+							<%= s.hidden_field :ShoeID, :value => shoe[:ShoeID] %>
+							<td align="left"><%= shoe[:Brand] %></td>
+							<td align="left"><%= shoe[:Style] %></td>
+							<td align="left"><%= shoe[:Material] %></td>
+							<td align="left"><%= shoe[:Size] %> (<%= shoe[:SizeType] %>)</td>
+							<td align="left"><%= shoe[:LengthFit] %></td>
+							<td><%= s.submit "Delete shoe", class: "btn btn-danger btn-block" %></td>
+						</tr>
+					<% end %>
+					<% end %> <% end %>
+
+					<%= form_for :newshoe, url: home_path, method: :post do |s| %>
+						<tr class="form-group row">
+							<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+							<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+							<td><%= s.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+							<td><%= s.grouped_collection_select :SwT, Sizetype.all, :sizesWType, :SizeType, :last, :first, {}, {class: "form-control"} %></td>
+							<td><%= s.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
+							<td><%= s.submit "Add new shoe", class: "btn btn-success btn-block" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+
+		<div role="tabpanel" class="tab-pane active" id="predict">
+			<h2>Shoe Prediction</h2>
+			<% if @shoes.count >= 3 %>
+				<p>Fill in the details of the shoe you intend to buy, and we'll tell you which size you should take!</p>
+				<table class="table">
+					<thead>
+						<tr class="row">
+							<th class="col-xs-3 col-md-offset-2 col-md-2">Brand</th>
+							<th class="col-xs-3 col-md-2">Style</th>
+							<th class="col-xs-3 col-md-2">Material</th>
+							<th class="col-xs-3 col-md-2"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<%= form_for :predic, url: predict_path, method: :post do |p| %>
+							<tr class="form-group row">
+								<td><%= p.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+								<td><%= p.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+								<td><%= p.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+								<td><%= p.submit "Make a prediction", class: "btn btn-success btn-block form-actions" %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% else %>
+				<p>Unfortunately, you do not have enough registered shoes for us to accurately make predictions for you. Please add at least <%= 3 - @shoes.count %> more shoes to unlock this section.</p>
+			<% end %>			
+		</div>
+	</div>
+</div>
+
+<!-- <p><%= button_to "List of all customers", index_path, :class => "btn", :method => :get %></p> -->
+<br><footer class="footer">
+	<p><%= button_to "Sign out", signout_path, via: :delete, :class => "btn btn-warning", :method => :get %></p>
+</footer>

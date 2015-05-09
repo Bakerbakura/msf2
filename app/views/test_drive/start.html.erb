@@ -1,6 +1,6 @@
 <h1>Welcome to your MyShoeFits test drive!</h1>
 
-<p class="row">To begin, we'll need to know your gender and your preferred SizeType:</p>
+<p class="row">To begin, we'll need to know your gender:</p>
 
 <%= form_for :td_start, url: td_start_path, html: {class: "form-horizontal", role: "form"} do |t| %>
 	<div class="form-group row">
@@ -11,14 +11,6 @@
 			<%= t.radio_button :Gender, 'M', checked: true %>Male</label>
 			<label class="col-sm-5 col-md-2 radio-inline">
 			<%= t.radio_button :Gender, 'F' %>Female</label>
-		</div>
-		<div class="col-md-4"></div>
-	</div>
-	<div class="form-group row">
-		<div class="col-md-2"></div>
-		<%= t.label "Preferred SizeType:", class: "col-sm-3 col-md-2 control-label" %>
-		<div class="col-sm-9 col-md-4">
-			<%= t.collection_select :preferredSizeType, Sizetype.all, :SizeType, :SizeType, {}, {class: "form-control"} %>
 		</div>
 		<div class="col-md-4"></div>
 	</div>

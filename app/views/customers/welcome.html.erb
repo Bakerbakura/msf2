@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h1>Welcome to MyShoeFits!</h1>
+</div>
+
+<% unless session[:CustID] %>
+	<!-- <p class="row">New to MyShoeFits? <%= link_to "Give it a try!", td_start_path, method: :get %></p> -->
+	<p class="row">New to MyShoeFits? <%= link_to "Give it a try!", start_path, method: :get %></p>
+<% end %>
+<p class="row"><%= link_to "Already a member?", signin_path %></p><br>
+
+<!--<p class="row"><%= button_to "List of all customers", index_path, {class: "btn btn-large btn-primary", method: :get} %></p>-->

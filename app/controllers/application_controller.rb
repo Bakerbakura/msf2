@@ -2,26 +2,40 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authenticate_customer
-    if session[:CustID]
-  		@customer = Customer.find_by_CustID!(session[:CustID])
-  		return true
+    if session[:CustID] and session[:activeTime]
+      @customer = Customer.find_by_CustID(session[:CustID])
+      if @customer and Time.parse(session[:activeTime]) >= Time.now - 30 * 60  # if last recorded activity time is less than 30 minutes ago
+        session[:activeTime] = Time.now.ctime
+        return true
+      else
+        session[:CustID] = nil
+        session[:activeTime] = nil
+        redirect_to signin_path
+        return false
+      end
     else
-  		redirect_to signin_path
+  		session[:CustID] = nil
+      session[:activeTime] = nil
+      redirect_to signin_path
   		return false
     end
   end
 
   def save_login_state
-    if session[:CustID]
+    if session[:CustID] and session[:activeTime]
       @customer = Customer.find_by_CustID(session[:CustID])
-      if @customer
+      if @customer and Time.parse(session[:activeTime]) >= Time.now - 30 * 60 # if customer exists and last active time was after 30 minutes ago
+        session[:activeTime] = Time.now.ctime
         redirect_to home_path
         return false
       else
         session[:CustID] = nil
+        session[:activeTime] = nil
         return true
       end
   	else
+      session[:CustID] = nil
+      session[:activeTime] = nil
   		return true
     end
   end

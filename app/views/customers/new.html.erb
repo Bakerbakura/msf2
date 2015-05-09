@@ -1,59 +1,56 @@
-<h1>New User</h1><br>
-<%= form_for :customer, url: signup_path, method: :post, html: {class: "form-horizontal", role: "form"} do |f| %>
-	<div class="form-group row">
-		<div class="col-md-2"></div>
-		<%= f.label "Email:", class: "col-sm-3 col-md-2 control-label" %>
-		<div class="col-sm-9 col-md-4">
+<div class="page-header">
+	<h1>New User</h1>
+</div>
+
+<%= form_for :newuser, url: signup_path, method: :post, html: {class: "form-horizontal", role: "form"} do |f| %>
+	<div class="form-group">
+		<%= f.label "Name:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
+			<%= f.text_field :Name, class: "form-control", placeholder: "enter your name here" %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= f.label "Email:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
 			<%= f.email_field :Email, class: "form-control", placeholder: "enter your email address here" %>
 		</div>
-		<div class="col-md-4"></div>
 	</div>
-	<div class="form-group row">
-		<div class="col-md-2"></div>
-		<%= f.label "Confirm Email:", class: "col-sm-3 col-md-2 control-label" %>
-		<div class="col-sm-9 col-md-4">
+
+	<div class="form-group">
+		<%= f.label "Confirm Email:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
 			<%= f.email_field :Email_confirmation, class: "form-control", placeholder: "enter the same email address here" %>
 		</div>
-		<div class="col-md-4"></div>
 	</div>
-	<div class="form-group row">
-		<div class="col-md-2"></div>
-		<%= f.label "Password:", class: "col-sm-3 col-md-2 control-label" %>
-		<div class="col-sm-9 col-md-4">
+	
+	<div class="form-group">
+		<%= f.label "Password:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
 			<%= f.password_field :password, class: "form-control", placeholder: "enter your password here" %>
 		</div>
-		<div class="col-md-4"></div>
 	</div>
-	<div class="form-group row">
-		<div class="col-md-2"></div>
-		<%= f.label "Confirm Password:", class: "col-sm-3 col-md-2 control-label" %>
-		<div class="col-sm-9 col-md-4">
+	
+	<div class="form-group">
+		<%= f.label "Confirm Password:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
 			<%= f.password_field :password_confirmation, class: "form-control", placeholder: "enter the same password here" %>
 		</div>
-		<div class="col-md-4"></div>
 	</div>
-	<div class="form-group row">
-		<div class="col-md-2"></div>
-		<%= f.label "Gender:", class: "col-sm-3 col-md-2 control-label" %>
-		<div class="col-sm-9 col-md-4">
-			<label class="col-sm-4 col-md-2 radio-inline">
+	
+	<div class="form-group">
+		<%= f.label "Gender:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
+			<label class="col-xs-4 col-md-6 radio-inline">
 			<%= f.radio_button :Gender, 'M', checked: true %>Male</label>
-			<label class="col-sm-5 col-md-2 radio-inline">
+			<label class="col-xs-5 col-md-6 radio-inline">
 			<%= f.radio_button :Gender, 'F' %>Female</label>
 		</div>
-		<div class="col-md-4"></div>
-	</div>
-	<div class="form-group row">
-		<div class="col-md-2"></div>
-		<%= f.label "Preferred SizeType:", class: "col-sm-3 col-md-2 control-label" %>
-		<div class="col-sm-9 col-md-4">
-			<%= f.collection_select :preferredSizeType, Sizetype.all, :SizeType, :SizeType, {}, {class: "form-control"} %>
-		</div>
-		<div class="col-md-4"></div>
 	</div>
 
 	<%= f.submit "Sign up", class: "btn btn-primary" %>
 <% end %>
 
-<br><p>Already a  user? <%= link_to "Sign in here", signin_path %></p>
-<p>Go to the <%= link_to "list of all users", index_path %></p>
+<br><footer class="footer">
+	<p>Already a  user? <%= link_to "Sign in here", signin_path %></p>
+</footer>

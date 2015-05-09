@@ -1,0 +1,45 @@
+<div class="page-header">
+	<h1>New Tryout</h1>
+</div>
+
+<p class="col-md-offset-3 col-md-6">To get started, we'll need some info from you. First of all, to give us an an idea of your shoe size, fill in the details of three of your shoes below. Try to use the shoes which fit you best!</p>
+
+<%= form_for :addshoes, url: start_path, method: :post do |s| %>
+	<table class="table">
+		<thead>
+			<tr class="row">
+				<th class="col-xs-3 col-md-3"><strong>Brand</strong></th>
+				<th class="col-xs-3 col-md-3"><strong>Style</strong></th>
+				<th class="col-xs-2 col-md-2"><strong>Material</strong></th>
+				<th class="col-xs-2 col-md-2"><strong>Size</strong></th>
+				<th class="col-xs-2 col-md-2"><strong>LengthFit</strong></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr class="row"><%= fields_for :shoe1 do |s1| %>
+				<td><%= s1.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+				<td><%= s1.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+				<td><%= s1.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+				<td><%= s1.grouped_collection_select :SwT, Sizetype.all, :sizesWType, :SizeType, :last, :first, {}, {class: "form-control"} %></td>
+				<td><%= s1.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
+			<% end %></tr>
+			<tr class="row"><%= fields_for :shoe2 do |s2| %>
+				<td><%= s2.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+				<td><%= s2.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+				<td><%= s2.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+				<td><%= s2.grouped_collection_select :SwT, Sizetype.all, :sizesWType, :SizeType, :last, :first, {}, {class: "form-control"} %></td>
+				<td><%= s2.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
+			<% end %></tr>
+			<tr class="row"><%= fields_for :shoe3 do |s3| %>
+				<td><%= s3.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
+				<td><%= s3.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
+				<td><%= s3.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
+				<td><%= s3.grouped_collection_select :SwT, Sizetype.all, :sizesWType, :SizeType, :last, :first, {}, {class: "form-control"} %></td>
+				<td><%= s3.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
+			<% end %></tr>
+		</tbody>
+	</table>
+
+	<p class="col-sm-offset-3 col-sm-6"><%= s.submit "Continue", class: "btn btn-success btn-block" %></p>
+<% end %>

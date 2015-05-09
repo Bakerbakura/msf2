@@ -7,6 +7,7 @@ class CreateTypetorealsizes < ActiveRecord::Migration
       t.float :ToMondo0,                        null: false,  default: 0.0
       t.boolean :modified,                      null: false,  default: false
       t.float :Uncertainty,                                   default: 0.0
+      t.integer :shoeCount,                     null: false,  default: 0
 
       t.timestamps
     end

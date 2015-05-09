@@ -1,29 +1,22 @@
 module ApplicationHelper
 
-	def bootstrap_class_for flash_type
-		#{success: "alert-success", info: "alert-info",	warning: "alert-warning",	danger: "alert-danger"}[flash_type] || flash_type.to_s
+	def bootstrap_class_for flash_type 	# assumes that flash_type is already one of :success, :info, :warning or :danger
 		"alert-".concat(flash_type.to_s)
 	end
 
 	def flash_messages(opts={})
 		flash.each do |flash_type, message|
-			concat(
-				content_tag(:div, class: "alert #{bootstrap_class_for flash_type}") do
-					concat content_tag(:button, "&times;".html_safe, class: "close", type: "button", data: {dismiss: "alert"})
-					concat message
-				end
-			)
-		end
-		nil
-	end
-
-	def T2RS_initialise
-		Brand.pluck(:Brand).each do |brand|
-			Style.pluck(:Style).each do |style|
-				Material.pluck(:Material).each do |material|
-					Typetorealsize.new(BrandStyleMaterial: brand +"|"+ style +"|"+ material).save!
-				end
+			if [:success, :info, :warning, :danger].include?(flash_type)
+				concat(
+					content_tag(:div, class: "alert #{bootstrap_class_for flash_type} alert-dismissible", role: "alert") do
+						concat (content_tag(:button, class: "close", type: "button", data: {dismiss: "alert"}, aria: {label: "Close"}) do
+							concat content_tag(:span, "&times;".html_safe, aria: {hidden: "true"})
+						end)
+						concat message
+					end
+				)
 			end
 		end
+		nil
 	end
 end

@@ -12,7 +12,6 @@ class TestDriveController < ApplicationController
     @tcustomer.save!
     session[:temp] = true
     session[:tCustID] = @tcustomer.tCustID
-    # session[:preferredSizeType] = Sizetype.find_by_SizeType!(@tcustomer.preferredSizeType)
     redirect_to td_addshoes_path
   end
 
@@ -71,7 +70,6 @@ class TestDriveController < ApplicationController
       @tcustomer.destroy
       @tcustomer = nil
       session[:CustID] = @customer.CustID
-      # session[:preferredSizeType] = Sizetype.find_by_SizeType!(@customer.preferredSizeType)
       redirect_to home_path
     else
       flash[:warning] = "Your email address was not entered correctly."
@@ -81,7 +79,7 @@ class TestDriveController < ApplicationController
 
   private
     def newtcustomer_params
-      params.require(:td_start).permit(:Gender, :preferredSizeType)
+      params.require(:td_start).permit(:Gender)
     end
 
     def newshoe_params
@@ -97,6 +95,6 @@ class TestDriveController < ApplicationController
     end
 
     def solidify_params
-      params.require(:td_solidify).permit(:Email, :Email_confirmation, :Gender, :password, :password_confirmation, :preferredSizeType)
+      params.require(:td_solidify).permit(:Email, :Email_confirmation, :Gender, :password, :password_confirmation)
     end
 end

@@ -35,7 +35,6 @@
 				<td><%= s.collection_select :Brand, Brand.all, :Brand, :Brand, {}, {class: "form-control"} %></td>
 				<td><%= s.collection_select :Style, Style.all, :Style, :Style, {}, {class: "form-control"} %></td>
 				<td><%= s.collection_select :Material, Material.all, :Material, :Material, {}, {class: "form-control"} %></td>
-				<% tempST = Sizetype.find_by_SizeType(@tcustomer.preferredSizeType) %>
 				<td><%= s.select :Size, (tempST.MinSize..tempST.MaxSize).step(tempST.SizeTypeInterval).to_a, {}, {class: "form-control"} %> </td>
 				<%= s.hidden_field :SizeType, value: tempST.SizeType %>
 				<td><%= s.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>

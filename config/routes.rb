@@ -1,32 +1,24 @@
 Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'customers#welcome'
 
-  # resources :customers, only: [:create, :index]
-  
-  get   "signin",   to: "sessions#signin"
-  post  "signin",   to: "sessions#signin_attempt"
-  get   "signout",  to: "sessions#signout"
-
+  get     "start",    to: "customers#start"
+  post    "start",    to: "customers#addshoes"
+  get     "userinfo", to: "customers#getinfo"
+  post    "userinfo", to: "customers#consolidate"
+  get     "signin",   to: "customers#signin"
+  post    "signin",   to: "customers#signin_attempt"
   get     "signup",   to: "customers#new"
   post    "signup",   to: "customers#create"
   get     "home",     to: "customers#home"
   post    "home",     to: "customers#addshoe"
   delete  "home",     to: "customers#delshoe"
-  get     "predict",  to: "customers#predict"
+  post    "predict",  to: "customers#predict"
+  get     "predict",  to: "customers#prediction"
+  get     "signout",  to: "customers#signout"
   get     "index",    to: "customers#index"
   
-  get     "td_start",     to: "test_drive#start"
-  post    "td_start",     to: "test_drive#create"
-  get     "td_addshoes",  to: "test_drive#addshoes"
-  post    "td_addshoes",  to: "test_drive#addshoe"
-  delete  "td_delshoes",  to: "test_drive#delshoe"
-  get     "td_ask",       to: "test_drive#ask"
-  get     "td_predict",   to: "test_drive#prediction"
-  get     "td_solidify",  to: "test_drive#solidify"
-  post    "td_solidify",  to: "test_drive#do_solidify"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

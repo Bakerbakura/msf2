@@ -1,0 +1,36 @@
+<div class="page-header">
+	<h1>Prediction</h1>
+</div>
+
+<div class="row">
+	<div class="col-xs-12 col-md-offset-3 col-md-6">
+		<p>Based on your data, our amazing algorithms and a little bit of fairy dust, we have concluded that when buying a <%= @spec["Brand"] %> made of <%= @spec["Material"] %> in the <%= @spec["Style"] %> style, your shoe size would be best summarized by the following table:</p><br>
+		<div class="row"><table class="table table-bordered">
+			<thead style="text-align:center" align="center">
+				<tr class="row">
+					<th class="col-md-2 col-xs-2"><strong>SizeType</strong></th>
+					<th class="col-md-4 col-xs-4"><strong>Shoe size prediction</strong></th>
+					<th class="col-md-2 col-xs-2"><strong>Uncertainty</strong></th>
+					<th class="col-md-2 col-xs-2"><strong>Recommended size to buy</strong></th>
+					<th class="col-md-2 col-xs-2"><strong>Alternative size to buy</strong></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @results.each do |result| %>
+					<tr class="row">
+						<td><%= result["sizeType"] %></td>
+						<td><%= result["prediction"] %></td>
+						<td><%= result["error"] %></td>
+						<td><%= result["pref1"] %></td>
+						<td><%= result["pref2"] %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table></div>
+	</div>
+</div>
+
+<br><footer class="footer">
+	<p><%= button_to "Back to my profile", home_path, :class => "btn btn-primary", :method => :get %></p>
+</footer>

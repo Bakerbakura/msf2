@@ -70,10 +70,10 @@ Material.create!([
   {Material: "Rubber"}
 ])
 Sizetype.create!([
-  {SizeType: "Europe",        ToMondo1: 6.67, ToMondo0: -10.0,  SizeTypeInterval: 0.5, MinSize: 32.0,   MaxSize: 49.0},
-  {SizeType: "Mondopoint",    ToMondo1: 1.0,  ToMondo0: 0.0,    SizeTypeInterval: 5.0, MinSize: 200.0,  MaxSize: 320.0},
-  {SizeType: "UK/Australia",  ToMondo1: 8.47, ToMondo0: 201.67, SizeTypeInterval: 0.5, MinSize: 0.0,    MaxSize: 14.0},
-  {SizeType: "US/Canada",     ToMondo1: 8.47, ToMondo0: 292.0,  SizeTypeInterval: 0.5, MinSize: 1.0,    MaxSize: 15.0}
+  {SizeType: "EU",          ToMondo1: 20.0/3.0, ToMondo0: -10.0,      SizeTypeInterval: 0.5, MinSize: 32.0,   MaxSize: 49.0},
+  {SizeType: "Mondopoint",  ToMondo1: 1.0,      ToMondo0: 0.0,        SizeTypeInterval: 5.0, MinSize: 200.0,  MaxSize: 320.0},
+  {SizeType: "UK",          ToMondo1: 25.4/3.0, ToMondo0: 605/3.0,    SizeTypeInterval: 0.5, MinSize: 0.0,    MaxSize: 14.0},
+  {SizeType: "US",          ToMondo1: 25.4/3.0, ToMondo0: 630.4/3.0,  SizeTypeInterval: 0.5, MinSize: 1.0,    MaxSize: 15.0}
 ])
 Style.create!([
   {Style: "Athletic"},
@@ -87,3 +87,20 @@ Style.create!([
   {Style: "Slippers"},
   {Style: "Work & Safety"}
 ])
+
+brands = Brand.pluck(:Brand)
+styles = Style.pluck(:Style)
+materials = Material.pluck(:Material)
+
+inserts = []
+brands.each do |brand|
+  styles.each do |style|
+    materials.each do |material|
+      inserts.push "(\'#{brand}|#{style}|#{material}\')"
+    end
+  end
+end
+Typetorealsize.connection.execute("INSERT INTO typetorealsizes (\"BrandStyleMaterial\") VALUES #{inserts.join(', ')}")
+
+puts "Finished seeding Typetorealsizes table."
+puts "Finished seeding all tables."

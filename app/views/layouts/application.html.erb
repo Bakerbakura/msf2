@@ -7,27 +7,25 @@
   <%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 
 	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle button -->
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Links-on-the-right">
+				<button type="button navbar-btn" class="navbar-toggle" data-toggle="collapse" data-target="#Links-on-right">
 					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
 				</button><!-- end navbar toggle button -->
 				<%= link_to "MyShoeFits", "/", id: "logo", class: "navbar-brand" %>
 			</div><!-- end navbar-header -->
 
 			<!-- Items toggleable in small view -->
-			<div class="collapse navbar-collapse" id="Links-on-the-right">
+			<div class="collapse navbar-collapse" id="Links-on-right">
 				<ul class="nav navbar-nav navbar-right">
-					<% if session[:CustID] %>
+					<% if session[:CustID] and session[:activeTime] %>
 						<li><%= link_to "Home", home_path %></li>
 						<li><%= link_to "Sign out", signout_path %></li>
 					<% else %>
@@ -36,7 +34,7 @@
 					<% end %>
 				</ul>
 			</div><!-- end navbar-collapse -->
-		</div> <!-- end container-fluid -->
+		</div><!-- end container-fluid -->
 	</nav>
 
 </head>

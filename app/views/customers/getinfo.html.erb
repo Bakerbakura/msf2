@@ -1,0 +1,58 @@
+<div class="page-header">
+	<h1>Add your details</h1>
+</div>
+
+<p class="col-md-offset-3 col-md-6">Before giving you the results we have from analyzing the details of the shoes you've given us, we'll need some last details from you:</p>
+
+<%= form_for :newuser, url: userinfo_path, method: :post, html: {class: "form-horizontal", role: "form"} do |f| %>
+	<div class="form-group">
+		<%= f.label "Name:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
+			<%= f.text_field :Name, class: "form-control", placeholder: "Enter your name here", size: 30 %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= f.label "Email:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
+			<%= f.email_field :Email, class: "form-control", placeholder: "Enter your email address here", size: 30 %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label "Confirm email:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
+			<%= f.email_field :Email_confirmation, class: "form-control", placeholder: "Enter the same email address here", size: 30 %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label "Password:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
+			<%= f.text_field :password, class: "form-control", placeholder: "Enter your password here", size: 30 %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label "Confirm password:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-9 col-md-4">
+			<%= f.text_field :password_confirmation, class: "form-control", placeholder: "Enter the same password here", size: 30 %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label "Gender:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
+		<div class="col-xs-4 col-md-2 radio"><label>
+			<%= f.radio_button :Gender, 'M', checked: true %> Male
+		</label></div>
+		<div class="col-xs-5 col-md-2 radio"><label>
+			<%= f.radio_button :Gender, 'F' %> Female
+		</label></div>
+	</div>
+
+	<%= f.submit "Get results", class: "btn btn-primary" %>
+<% end %>
+
+<br><footer class="footer">
+	<p>Already a  user? <%= link_to "Sign in here", signin_path %></p>
+</footer>
