@@ -18,7 +18,6 @@ class Typetorealsize < ActiveRecord::Base
 	end
 
 	def update_entry
-		# row_limit = 30
 		c0, c1 = self.ToMondo0, self.ToMondo1
 
 		entry_info = self.shoes.map{|s| [s.preRealSize, s.owner.ShoeSize]}.take(Typetorealsize.row_limit)	# use row_limit here somewhere?
@@ -83,7 +82,9 @@ class Typetorealsize < ActiveRecord::Base
 			t2rs.update!(ToMondo1: 1.0, ToMondo0: 0.0, modified: true)
 			t2rs.shoes.each{|s| s.update_attribute(:RealSize, s.preRealSize*t2rs.ToMondo1 + t2rs.ToMondo0)}
 			arr = t2rs.shoes.map{|s| [s.preRealSize, s.RealSize]}
-			unless arr.empty? then t2rs.update_attribute(:Uncertainty, Math.sqrt(arr.sum{|e| (e[0]-e[1])*(e[0]-e[1])}/arr.count)) end
+			unless arr.empty?
+				t2rs.update_attribute(:Uncertainty, Math.sqrt(arr.sum{|e| (e[0]-e[1])*(e[0]-e[1])}/arr.count))
+			end
 		end
 	end
 end
