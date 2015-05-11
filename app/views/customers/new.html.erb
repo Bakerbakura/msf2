@@ -40,12 +40,12 @@
 	
 	<div class="form-group">
 		<%= f.label "Gender:", class: "col-xs-3 col-md-offset-2 col-md-2 control-label" %>
-		<div class="col-xs-9 col-md-4">
-			<label class="col-xs-4 col-md-6 radio-inline">
-			<%= f.radio_button :Gender, 'M', checked: true %>Male</label>
-			<label class="col-xs-5 col-md-6 radio-inline">
-			<%= f.radio_button :Gender, 'F' %>Female</label>
-		</div>
+		<div class="col-xs-4 col-md-2 radio"><label>
+			<%= f.radio_button :Gender, 'M', checked: true %> Male
+		</label></div>
+		<div class="col-xs-5 col-md-2 radio"><label>
+			<%= f.radio_button :Gender, 'F' %> Female
+		</label></div>
 	</div>
 
 	<%= f.submit "Sign up", class: "btn btn-primary" %>
