@@ -29,12 +29,14 @@ class CustomersController < ApplicationController
 
   def consolidate
   	@parms = newuser_params
+  	puts newuser_params
   	if @parms["Email"] == @parms["Email_confirmation"]
   		@customer = Customer.create!(@parms.reject{|k,v| k == "Email_confirmation"})	# what if customer has non-matching passwords?
   		session[:shoeHashes].each_value{|h| @customer.shoes.create!(h)}
   		session[:shoeHashes] = nil
   		session[:CustID] = @customer.CustID
   		session[:activeTime] = Time.now.ctime
+  		flash[:activeTab] = "predict"
   		redirect_to home_path
   	else
   		flash[:warning] = "Your email address was not entered correctly."
@@ -79,6 +81,8 @@ class CustomersController < ApplicationController
 
   def home
   	@shoes = @customer.shoes.to_a
+  	@activeTab = flash[:activeTab]
+  	if @activeTab.nil? then @activeTab = "info" end
   end
 
 	def index
@@ -136,7 +140,7 @@ class CustomersController < ApplicationController
 		end
 
 		def newuser_params
-			params.require(:newuser).permit(:Email, :Email_confirmation, :Gender, :password, :password_confirmation)
+			params.require(:newuser).permit(:Name, :Email, :Email_confirmation, :Gender, :password, :password_confirmation)
 		end
 
 		def signin_params
