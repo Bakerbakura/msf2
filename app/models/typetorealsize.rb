@@ -21,7 +21,7 @@ class Typetorealsize < ActiveRecord::Base
 		# row_limit = 30
 		c0, c1 = self.ToMondo0, self.ToMondo1
 
-		entry_info = self.shoes.map{|s| [s.preRealSize, s.owner.ShoeSize]}.take(row_limit)	# use row_limit here somewhere?
+		entry_info = self.shoes.map{|s| [s.preRealSize, s.owner.ShoeSize]}.take(Typetorealsize.row_limit)	# use row_limit here somewhere?
 		preSizes = entry_info.map{|e| e[0]}
 
 		if preSizes.uniq.count >= 2 and preSizes.max - preSizes.min >= 30.0
